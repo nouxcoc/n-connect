@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import logo from './logo.svg';
 import { Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
-import './App.css';
+import './App.scss';
 
 import { history } from './_helpers';
 import { alertActions } from './_actions';
@@ -25,18 +25,20 @@ class App extends Component {
   render() {
     const { alert } = this.props;
     return (
-      <div className="container">
-        {alert.message &&
-          <div className={`alert ${alert.type}`}>{alert.message}</div>
-        }
-        <Router history={history}>
-          <div>
-            <PrivateRoute exact path="/" component={HomePage} />
-            <PrivateRoute exact path="/register" component={RegisterPage} />
-            <Route path="/login" component={LoginPage} />
-            {/* <Route path="/register" component={RegisterPage} /> */}
-          </div>
-        </Router>
+      <div className="app">
+        <div className="container-fluid">
+          {alert.message &&
+            <div className={`alert ${alert.type}`}>{alert.message}</div>
+          }
+          <Router history={history}>
+            <div>
+              <PrivateRoute exact path="/" component={HomePage} />
+              <PrivateRoute exact path="/register" component={RegisterPage} />
+              <Route path="/login" component={LoginPage} />
+              {/* <Route path="/register" component={RegisterPage} /> */}
+            </div>
+          </Router>
+        </div>
       </div>
     );
   }

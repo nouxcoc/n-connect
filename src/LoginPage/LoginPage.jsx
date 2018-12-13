@@ -1,7 +1,7 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import './Login.css';
+import './Login.scss';
 
 import { userActions } from '../_actions';
 
@@ -44,9 +44,11 @@ class LoginPage extends React.Component {
         return (
             <div className="login-bg login-form text-center">
                 <div className="row justify-content-center align-items-center">
-                    <div className="col-4">
+                    <div className="col-8 col-sm-6 col-md-4 col-lg-3 col-xl-2">
                         <div className="form-group">
-                            <div className="rounded-circle user-info"></div>
+                            <div className="rounded-circle user-info bg-secondary d-flex justify-content-center align-items-center text-white align-items-center">
+                                <h4 className="font-weight-light m-0">AD</h4>
+                            </div>
                         </div>
                         <form name="form" onSubmit={this.handleSubmit}>
                             <div className={'form-group' + (submitted && !username ? ' has-error' : '')}>

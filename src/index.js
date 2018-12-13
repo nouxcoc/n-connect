@@ -6,7 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import { store } from './_helpers';
 
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import './_styles/styles.scss';
 import '../node_modules/toastr/build/toastr.min.css';
 
 ReactDOM.render(

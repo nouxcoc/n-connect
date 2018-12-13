@@ -1,14 +1,16 @@
-.login-bg::before{
-  content: "";
-  /* background: #f1f1f1; */
-  position: absolute;
-  /* border-right: transparent 200px;
-  border-left: 40vw #f1f1f1 solid;
-  border-top : 200px solid #f1f1f1;
-  border-bottom: transparent 50vh solid; */
-  width: 200px;
-  height: 100%;
-  left: 0;
+.login-bg{
+  &::before{
+    content: "";
+    /* background: #f1f1f1; */
+    position: absolute;
+    /* border-right: transparent 200px;
+    border-left: 40vw #f1f1f1 solid;
+    border-top : 200px solid #f1f1f1;
+    border-bottom: transparent 50vh solid; */
+    width: 200px;
+    height: 100%;
+    left: 0;
+  }
 }
 
 .login-form .row.align-items-center{
@@ -18,7 +20,6 @@
 .user-info{
   width: 70px;
   height: 70px;
-  background: #f1f1f1;
   display: block;
   margin: auto;
 }
