@@ -1,15 +1,51 @@
+@import "../_styles/custom-variables.scss";
+
 .login-bg{
   &::before{
     content: "";
-    /* background: #f1f1f1; */
-    position: absolute;
-    /* border-right: transparent 200px;
-    border-left: 40vw #f1f1f1 solid;
-    border-top : 200px solid #f1f1f1;
-    border-bottom: transparent 50vh solid; */
-    width: 200px;
-    height: 100%;
+    width: 300px;
+    height: 300px;
+    border-radius: 400px;
+    background: $primary;
     left: 0;
+    transform: translate(-40%, -20%);
+    position: absolute;
+  }
+  &::after{
+    content: "";
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    background: $secondary;
+    left: 100px;
+    top:120px;
+    transform: translate(50%, 50%);
+    position: absolute;
+  }
+}
+
+.login-bg .row{
+  &::before{
+    content: "";
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    background: $secondary;
+    left: 140px;
+    top:280px;
+    transform: translate(50%, 50%);
+    position: absolute;
+  }
+  &::after{
+    content: "";
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    background: $primary;
+    left: 70px;
+    top:220px;
+    transform: translate(50%, 50%);
+    position: absolute;
   }
 }
 

@@ -1,2 +1,19 @@
 @import "./custom-variables.scss";
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+.card{
+    width: 100%;
+    .badge-light{
+        background: $gray-200;
+        color: $gray-700;
+        padding: 5px 10px;
+        font-weight: 400;
+    }
+}
+
+.sidebar{
+    // position: fixed;
+    left: 0;
+    width: 60px;
+    background: #fff;
+}
