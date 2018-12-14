@@ -9,7 +9,7 @@ export const PrivateRoute = ({ component: Component, ...rest }) => (
             ?
             <div>
                 {/* <Header /> */}
-                {/* <Sidebar/> */}
+                <Sidebar/>
                 <div className="container-fluid">
                     <Component {...props} />
                 </div>
