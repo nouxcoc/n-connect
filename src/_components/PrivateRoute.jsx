@@ -8,8 +8,8 @@ export const PrivateRoute = ({ component: Component, ...rest }) => (
         localStorage.getItem('user')
             ?
             <div>
-                <Header />
-                <Sidebar/>
+                {/* <Header /> */}
+                {/* <Sidebar/> */}
                 <div className="container-fluid">
                     <Component {...props} />
                 </div>

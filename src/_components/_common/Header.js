@@ -4,8 +4,8 @@ import { NavLink  } from 'react-router-dom';
 
 const Header = ({ loading }) => {
   return (
-    <div className="container-fluid">
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <div className="container-fluid p-0">
+      <nav className="navbar navbar-expand-lg navbar-light">
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
@@ -13,7 +13,7 @@ const Header = ({ loading }) => {
               <NavLink className="nav-link" activeClassName="active" exact to="/">Home</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink  className="nav-link" activeClassName="active" to="/courses">Courses</NavLink >
+              <NavLink  className="nav-link" activeClassName="active" to="/courses">Questions</NavLink >
             </li>
           </ul>
           {/* {loading && <LoadingDots interval={100} dots={20} />} */}

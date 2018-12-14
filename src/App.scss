@@ -1,4 +1,9 @@
+@import "./_styles/custom-variables.scss";
 
+.app{
+  margin: 0 70px;
+  background: #fff;
+}
 
 @keyframes App-logo-spin {
   from {
