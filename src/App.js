@@ -10,8 +10,8 @@ import { PrivateRoute } from './_components';
 import { LoginPage } from './LoginPage';
 // import { RegisterPage } from './RegisterPage';
 import { DashBoard } from './_components/dashboard/Dashboard';
-import { CoursesPage } from './_components/course/CoursesPage';
-import { ManageCoursePage} from './_components/course/ManageCoursePage';
+import { QuestionsPage } from './_components/Questions/QuestionsPage';
+import { ManageQuestionPage } from './_components/Questions/ManageQuestionPage';
 
 class App extends Component {
   constructor(props) {
@@ -35,8 +35,8 @@ class App extends Component {
           <Router history={history}>
             <div>
               <PrivateRoute exact path="/" component={DashBoard} />
-              <PrivateRoute exact path="/courses" component={CoursesPage} />
-              <PrivateRoute path="/course/:id?" component={ManageCoursePage} />
+              <PrivateRoute exact path="/questions" component={QuestionsPage} />
+              <PrivateRoute path="/question/:id?" component={ManageQuestionPage} />
               <Route path="/login" component={LoginPage} />
               {/* <Route path="/register" component={RegisterPage} /> */}
             </div>

@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 
 import { authentication } from './authentication.reducer';
-import courses from './courseReducer';
 import authors from './authorReducer';
+import questions from './questionReducer';
 import ajaxCallsInProgress from './ajaxStatusReducer';
 import { registration } from './registration.reducer';
 import { users } from './users.reducer';
@@ -13,8 +13,8 @@ const rootReducer = combineReducers({
   registration,
   users,
   alert,
-  courses,
   authors,
+  questions,
   ajaxCallsInProgress
 });
 

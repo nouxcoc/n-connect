@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 const Sidebar = ({ loading }) => {
   return (
-    <div className="sidebar">
+    <div className="sidebar minimized">
       <ul className="nav flex-column">
         <li>
           <span className="menu-icon d-flex align-items-center justify-content-center">
@@ -14,26 +14,26 @@ const Sidebar = ({ loading }) => {
           </span>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" activeClassName="active" exact to="/"><i class="material-icons">
+          <NavLink className="nav-link" activeClassName="active" exact to="/"><i className="material-icons">
             dashboard
             </i>
           </NavLink>
         </li>
-        <li className="nav-item bg-white">
-          <NavLink className="nav-link" activeClassName="active" to="/courses">
-          <i class="material-icons text-primary">
+        <li className="nav-item">
+          <NavLink className="nav-link" activeClassName="active" to="/questions">
+          <i className="material-icons">
             question_answer
           </i>
           </NavLink >
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" activeClassName="active" exact to="/"><i class="material-icons">
+          <NavLink className="nav-link" activeClassName="active" exact to="/projects"><i className="material-icons">
             work
             </i>
           </NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" activeClassName="active" exact to="/"><i class="material-icons">
+          <NavLink className="nav-link" activeClassName="active" exact to="/team"><i className="material-icons">
             group
             </i>
           </NavLink>

@@ -3,6 +3,11 @@
 @import "./custom-variables.scss";
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
+$sidebar-width : 300px;
+$sidebar-min-width : 70px;
+$sidebar-item-height : 70px;
+$topbar-height : 70px;
+
 body{
     background: $gray-150;
 }
@@ -28,13 +33,6 @@ body{
 
 .text-extra-muted{
     color: $gray-500;
-}
-
-.sidebar{
-    // position: fixed;
-    left: 0;
-    width: 60px;
-    background: #fff;
 }
 
 .full-height-container{
@@ -78,6 +76,14 @@ body{
       }
 }
 
+.bg-extra-light{
+    background: lighten($gray-100, 1%);
+}
+
+.border-med-light{
+    border-color: lighten($gray-200, 1%) !important;
+}
+
 nav{
     min-height: 70px;
     border-bottom: $gray-100 solid 1px;
@@ -90,12 +96,17 @@ nav{
     margin-right: 5px;
 }
 
-.questions-section{
+.question-type-section{
     background: $gray-150;
-    .card{
-        border-bottom: $gray-300 solid 1px !important;
+}
 
-        .course-title a{
+.questions-section{
+    //background: $gray-150;
+    border-left: $gray-100 solid 1px;
+    .card{
+        border-bottom: $gray-150 solid 1px !important;
+
+        .question-title a{
             color: $gray-600 !important;
             font-weight: bold;
         }
@@ -119,30 +130,81 @@ nav{
   }
 
   .sidebar{
-      width: 70px;
+      width: $sidebar-width;
       position: fixed;
       height: 100vh;
-      background: transparent;
+      background: #fff;
+      box-shadow: 0 0 15px $gray-200;
+      z-index: 1;
       left:0;
       .menu-icon{
           background: $secondary;
-          width: 100%;
-          height: 70px;
+          width: $sidebar-min-width;
+          height: $sidebar-item-height;
           display: block;
           i{
             font-size: 32px;
            }
         }
         .nav-link{
-            min-height: 70px;
-            border-bottom: $gray-200 solid 1px;
+            min-height: $sidebar-item-height;
+            border-bottom: $gray-150 solid 1px;
             padding: 20px 0;
             text-align: center;
             color: $gray-500; 
             i{
                 margin-top: 5px;
             }
+            &.active{
+                color: $primary;
+            }
         }
+        &.minimized{
+            width: $sidebar-min-width;
+        }
+  }
+
+  .floating-cntr{
+    position: absolute;
+    right: 10px;
+    transform: translate(0%, 0%); 
+    z-index: 1;
+  }
+  .rounded-btn{
+      width:50px;
+      height: 50px;
+      text-align: center;
+      display: inline-flex;
+      border-radius: 50px;
+      padding: 13px;
+      transform: scale(0.8, 0.8);
+
+  }
+
+  .top-header{
+      min-height: $topbar-height;
+      .nav{
+        .nav-link{
+            min-height: $topbar-height;
+            padding: 35px 5px 5px 5px;
+            color: $gray-600;
+            margin-bottom: -1px;
+            small{
+                font-weight: bold;
+            }
+            &.active{
+                border-bottom: $primary solid 2px;
+                color: $primary;
+                &:hover{
+                    border-bottom: $primary solid 2px;
+                }
+            }
+            &:hover{
+                border-bottom: $secondary solid 2px;
+            }
+            margin-right: 20px;
+        }
+      }
   }
 
 

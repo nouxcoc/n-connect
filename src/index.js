@@ -5,13 +5,13 @@ import { App } from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import { store } from './_helpers';
-import { loadCourses } from './actions/courseActions';
 import { loadAuthors } from './actions/authorActions';
+import { loadQuestions } from './actions/questionActions';
 
 import './_styles/styles.scss';
 import '../node_modules/toastr/build/toastr.min.css';
 
-store.dispatch(loadCourses());
+store.dispatch(loadQuestions());
 store.dispatch(loadAuthors());
 
 ReactDOM.render(
