@@ -14,7 +14,7 @@ const Sidebar = ({ loading }) => {
           </span>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" activeClassName="active" exact to="/"><i className="material-icons">
+          <NavLink className="nav-link" activeClassName="active" exact to="/dashboard"><i className="material-icons">
             dashboard
             </i>
           </NavLink>

@@ -6,6 +6,8 @@ import * as questionActions from '../../actions/questionActions';
 import QuestionForm from './QuestionForm';
 import { authorsFormattedForDropdown } from '../../selectors/selectors';
 import toastr from 'toastr';
+import socketIOClient from "socket.io-client";
+const socket = socketIOClient('http://localhost:3000');
 // import axios from 'axios';
 
 class ManageQuestionPage extends React.Component {
@@ -15,7 +17,7 @@ class ManageQuestionPage extends React.Component {
     this.state = {
       question: Object.assign({}, props.question),
       errors: {},
-      saving: false
+      saving: false,
     };
 
     this.updateQuestionState = this.updateQuestionState.bind(this);
@@ -53,6 +55,7 @@ class ManageQuestionPage extends React.Component {
 
 
   saveQuestion(event) {
+    
     event.preventDefault();
 
     if (!this.questionFormIsValid()) {
@@ -62,7 +65,10 @@ class ManageQuestionPage extends React.Component {
     this.setState({ saving: true });
     if (this.state.question._id) {
       this.props.actions.updateQuestion(this.state.question)
-        .then(() => this.redirect())
+        .then(() => {
+          this.redirect();
+          socket.emit('message', this.props.question.title);
+        })
         .catch(error => {
           toastr.error(error);
           this.setState({ saving: false });

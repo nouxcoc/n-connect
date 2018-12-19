@@ -6,9 +6,15 @@ import * as questionActions from '../../actions/questionActions';
 import QuestionList from './QuestionList';
 import toastr from 'toastr';
 
+
 class QuestionsPage extends React.Component {
   constructor(props, context) {
     super(props, context);
+
+    
+
+    
+
     this.redirectToAddQuestionPage = this.redirectToAddQuestionPage.bind(this);
     this.deleteQuestion = this.deleteQuestion.bind(this);
 
@@ -30,9 +36,6 @@ class QuestionsPage extends React.Component {
 
   render() {
     const { questions } = this.props;
-
-    console.log(this.props);
-
     return (
       <div className="dashboard-container">
         <div className="row">
@@ -100,6 +103,7 @@ class QuestionsPage extends React.Component {
               <h6 className="text-extra-muted" >Branding Interview <br />Questions</h6>
             </div>
           </div>
+
           <div className="col-8 full-height-container questions-section p-0">
             <div className="px-3">
 

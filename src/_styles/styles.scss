@@ -4,6 +4,7 @@
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
 $sidebar-width : 300px;
+$aside-width : 300px;
 $sidebar-min-width : 70px;
 $sidebar-item-height : 70px;
 $topbar-height : 70px;
@@ -11,6 +12,12 @@ $topbar-height : 70px;
 body{
     background: $gray-150;
 }
+
+.app{
+    margin: 0 $aside-width 0 $sidebar-min-width;
+    background: #fff;
+  }
+
 .card{
     border:0;
     border-radius: 0;
@@ -127,6 +134,17 @@ nav{
     padding-left : 25px !important;
     padding-right : 25px !important; 
     letter-spacing: 3px;
+  }
+
+  .aside-panel{
+    width: $aside-width;
+    position: fixed;
+    height: 100vh;
+    background: #fff;
+    box-shadow: 0 0 15px $gray-200;
+    z-index: 1;
+    top: 0;
+    right:0;
   }
 
   .sidebar{
