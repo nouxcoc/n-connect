@@ -7,18 +7,11 @@ import QuestionList from './QuestionList';
 import toastr from 'toastr';
 
 
-class QuestionsPage extends React.Component {
+class QuestionsComponent extends React.Component {
   constructor(props, context) {
     super(props, context);
-
-    
-
-    
-
     this.redirectToAddQuestionPage = this.redirectToAddQuestionPage.bind(this);
     this.deleteQuestion = this.deleteQuestion.bind(this);
-
-
   }
 
   redirectToAddQuestionPage() {
@@ -39,8 +32,8 @@ class QuestionsPage extends React.Component {
     return (
       <div className="dashboard-container">
         <div className="row">
-          <div className="col-4 full-height-container question-type-section p-0">
-            <div className="top-header border-bottom px-5">
+          <div className="col-5 full-height-container question-type-section p-0">
+            <div className="top-header tabs border-bottom px-5">
               <ul className="nav">
                 <li className="nav-item">
                   <a className="nav-link active" href="#"><small>STAKEHOLDER</small></a>
@@ -53,58 +46,61 @@ class QuestionsPage extends React.Component {
                 </li>
               </ul>
             </div>
-            {/* <div className="px-5 py-3 border-bottom">
+            <div className="scroll-cntr scollable">
+              {/* <div className="px-5 py-3 border-bottom">
               <span className="badge badge-pill bg-light d-inline-block px-3 py-2 font-weight-normal text-muted m-1">General</span>
               <span className="badge badge-pill bg-light d-inline-block px-3 py-2 font-weight-normal text-muted m-1">COMMON</span>
               <span className="badge badge-pill bg-light d-inline-block px-3 py-2 font-weight-normal text-muted m-1">BRANDING</span>
             </div> */}
-            <div className="px-5 py-4 border-bottom">
-              <button className="btn btn-secondary"><small>PREPARE QUESTIONNAIRE</small></button>
-            </div>
-
-            <div className="card bg-transparent border-bottom px-5 py-4">
-              <div className="floating-cntr">
-                <span className="rounded-btn border border-dark floated" onClick={this.redirectToAddQuestionPage}>
-                  <i className="material-icons text-dark mr-4">
-                    add
-                  </i>
-                </span>
+              <div className="px-5 py-4 border-bottom">
+                <button className="btn btn-secondary"><small>PREPARE QUESTIONNAIRE</small></button>
               </div>
-              <h1 className="font-weight-bold text-extra-muted">{questions.length}</h1>
-              <h6 className="display-5 text-extra-muted">All Stakeholder Interview <br />Questions</h6>
 
-              {/* <p className="mt-4 mb-0"><span className="h4">04</span> <small className="text-white-50">General</small></p> */}
-            </div>
-            <div className="card px-5 py-4 border-bottom">
-              <div className="floating-cntr">
-                {/* <span className="rounded-btn bg-secondary floated">
+              <div className="card bg-transparent border-bottom px-5 py-4">
+                <div className="floating-cntr">
+                  <span className="rounded-btn border border-dark floated" onClick={this.redirectToAddQuestionPage}>
+                    <i className="material-icons text-dark mr-4">
+                      add
+                  </i>
+                  </span>
+                </div>
+                <h1 className="font-weight-bold text-extra-muted">{questions.length}</h1>
+                <h6 className="display-5 text-extra-muted">All Stakeholder Interview <br />Questions</h6>
+
+                {/* <p className="mt-4 mb-0"><span className="h4">04</span> <small className="text-white-50">General</small></p> */}
+              </div>
+              <div className="card px-5 py-4 border-bottom">
+                <div className="floating-cntr">
+                  {/* <span className="rounded-btn bg-secondary floated">
                   <i className="material-icons text-white mr-4">
                     speaker_notes
                   </i>
                 </span> */}
-                <span className="rounded-btn bg-primary floated" onClick={this.redirectToAddQuestionPage}>
-                  <i className="material-icons text-white mr-4">
-                    add
+                  <span className="rounded-btn bg-primary floated" onClick={this.redirectToAddQuestionPage}>
+                    <i className="material-icons text-white mr-4">
+                      add
                   </i>
-                </span>
+                  </span>
+                </div>
+                <h1 className="display-4 font-weight-bold text-primary">12</h1>
+                <h6 className="text-primary" >General Interview <br />Questions</h6>
               </div>
-              <h1 className="display-4 font-weight-bold text-primary">12</h1>
-              <h6 className="text-primary" >General Interview <br />Questions</h6>
-            </div>
-            <div className="card bg-transparent border-bottom px-5 py-4">
-              <div className="floating-cntr">
-                <span className="rounded-btn border border-dark floated">
-                  <i className="material-icons text-dark mr-4">
-                    add
+              <div className="card bg-transparent border-bottom px-5 py-4">
+                <div className="floating-cntr">
+                  <span className="rounded-btn border border-dark floated">
+                    <i className="material-icons text-dark mr-4">
+                      add
                   </i>
-                </span>
+                  </span>
+                </div>
+                <h1 className="font-weight-bold text-extra-muted">12</h1>
+                <h6 className="text-extra-muted" >Branding Interview <br />Questions</h6>
               </div>
-              <h1 className="font-weight-bold text-extra-muted">12</h1>
-              <h6 className="text-extra-muted" >Branding Interview <br />Questions</h6>
             </div>
+
           </div>
 
-          <div className="col-8 full-height-container questions-section p-0">
+          <div className="col-7 full-height-container questions-section p-0">
             <div className="px-3">
 
               {/* <input type="submit"
@@ -155,7 +151,7 @@ class QuestionsPage extends React.Component {
   }
 }
 
-QuestionsPage.propTypes = {
+QuestionsComponent.propTypes = {
   questions: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired
 };
@@ -172,5 +168,5 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-const connectedApp = connect(mapStateToProps, mapDispatchToProps)(QuestionsPage);
-export { connectedApp as QuestionsPage };
+const connectedApp = connect(mapStateToProps, mapDispatchToProps)(QuestionsComponent);
+export { connectedApp as QuestionsComponent };

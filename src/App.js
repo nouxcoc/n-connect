@@ -7,6 +7,7 @@ import './App.scss';
 import { history } from './_helpers';
 import { alertActions } from './_actions';
 import routes from './routes';
+import { LoginPage } from './LoginPage';
 
 class App extends Component {
   constructor(props) {
@@ -27,28 +28,18 @@ class App extends Component {
           {alert.message &&
             <div className={`alert ${alert.type}`}>{alert.message}</div>
           }
-          {/* <Router history={history}>
-            <div>
-              <PrivateRoute exact path="/" component={DashBoard} />
-              <PrivateRoute exact path="/questions" component={QuestionsPage} />
-              <PrivateRoute path="/question/:id?" component={ManageQuestionPage} />
-
-              <Route path="/login" component={LoginPage} />
-              <Route path="/register" component={RegisterPage} />
-            </div>
-          </Router> */}
           <Router history={history}>
             <div>
-              {routes.map((route, i) => (
-                // <Route path={route.path} key={i} component={route.component} routes={route.routes}></Route>
-                <Route key={i}
-                  path={route.path}
-                  render={props => (
-                    // pass the sub-routes down to keep nesting
-                    <route.component {...props} routes={route.routes} />
-                  )}
-                />
-              ))}
+              <Switch>
+                {routes.map((route, i) => (
+                  <Route key={i}
+                    path={route.path}
+                    render={props => (
+                      <route.component {...props} routes={route.routes} />
+                    )}
+                  />
+                ))}
+              </Switch>
             </div>
           </Router>
         </div>

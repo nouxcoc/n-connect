@@ -1,40 +1,57 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import socketIOClient from "socket.io-client";
-const socket = socketIOClient('http://localhost:3000');
+import { ChatComponent } from '../Chat/ChatComponent';
 
 class AsidePanel extends Component {
   constructor(props) {
     super(props);
-    this.state ={
-      socketmessage : "Welcome"
-    }
-
-    console.log("data");
-
-    socket.on("MessageFromSocket", data => {
-      
-      this.setState({socketmessage : data});
-    });
-
   }
 
   render() {
+    const { user, users } = this.props;
     return (
       <div className="aside-panel">
-        {this.state.socketmessage}
+        <div className="top-header aside-tabs border-bottom">
+          <ul className="nav">
+            <li className="nav-item">
+              <a className="nav-link active" href="#">
+                <i className="material-icons">
+                  chat_bubble_outline
+                </i>
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#">
+                <i className="material-icons">
+                  playlist_add_check
+                </i>
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#">
+                <i className="material-icons">
+                  tune
+                </i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <ChatComponent />
+
       </div>
     );
   }
 }
 
 function mapStateToProps(state) {
-  const { alert } = state;
+  const { users, authentication } = state;
+  const { user } = authentication;
   return {
-    alert
+    user,
+    users
   };
 }
 
 const connectedApp = connect(mapStateToProps)(AsidePanel);
-export { connectedApp as AsidePanel }; 
+export { connectedApp as AsidePanel };
 

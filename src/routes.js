@@ -1,8 +1,10 @@
 import { LoginPage } from './LoginPage';
-import { DashBoard } from './_components/dashboard/Dashboard';
-import { QuestionsPage } from './_components/Questions/QuestionsPage';
+import { DashBoardComponent } from './_components/Dashboard/DashboardComponent';
+import { QuestionsComponent } from './_components/Questions/QuestionsComponent';
 import { ManageQuestionPage } from './_components/Questions/ManageQuestionPage';
 import Layout from './_components/Layout';
+import { ProjectsComponent } from './_components/Projects/ProjectsComponent';
+import { TeamComponent } from './_components/Team/TeamComponent';
 
 const routes = [
 
@@ -15,21 +17,25 @@ const routes = [
         component: Layout,
         routes: [
             {
-                path: "/",
-                component: DashBoard
-            },
-            {
                 path: "/dashboard",
-                component: DashBoard
+                component: DashBoardComponent
             },
             {
                 path: "/questions",
-                component: QuestionsPage
+                component: QuestionsComponent
             },
             {
                 path: "/question/:id?",
                 component: ManageQuestionPage
-            }
+            },
+            {
+                path: "/projects",
+                component: ProjectsComponent
+            },
+            {
+                path: "/team",
+                component: TeamComponent
+            },
         ]
     }
 ];

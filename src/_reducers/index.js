@@ -3,6 +3,7 @@ import { combineReducers } from 'redux';
 import { authentication } from './authentication.reducer';
 import authors from './authorReducer';
 import questions from './questionReducer';
+import messages from './messageReducer';
 import ajaxCallsInProgress from './ajaxStatusReducer';
 import { registration } from './registration.reducer';
 import { users } from './users.reducer';
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   alert,
   authors,
   questions,
+  messages,
   ajaxCallsInProgress
 });
 

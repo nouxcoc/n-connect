@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { userActions } from '../../_actions';
 
-class DashBoard extends React.Component {
+class DashBoardComponent extends React.Component {
     componentDidMount() {
         this.props.dispatch(userActions.getAll());
     }
@@ -65,5 +65,5 @@ function mapStateToProps(state) {
     };
 }
 
-const connectedHomePage = connect(mapStateToProps)(DashBoard);
-export { connectedHomePage as DashBoard };
+const connectedHomePage = connect(mapStateToProps)(DashBoardComponent);
+export { connectedHomePage as DashBoardComponent };
