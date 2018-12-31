@@ -79,6 +79,7 @@ body {
 
 .scollable {
   overflow: auto;
+  max-height: 100vh;
   &::-webkit-scrollbar {
     width: 10px;
     margin-left: -10px;
@@ -122,13 +123,13 @@ body {
 }
 
 .scroll-cntr {
-  max-height: calc(100vh - #{$topbar-height});
-  height: calc(100vh - #{$topbar-height});
+  max-height: calc(100vh - #{$topbar-height + 1});
+  height: calc(100vh - #{$topbar-height + 1});
 }
 
 .chat-scroll-cntr {
-  max-height: calc(100vh - #{$topbar-height + $topbar-height});
-  height: calc(100vh - #{$topbar-height + $topbar-height});
+  max-height: calc(100vh - #{$topbar-height + $topbar-height + 1});
+  height: calc(100vh - #{$topbar-height + $topbar-height + 1});
 }
 
 .bg-extra-light {
@@ -174,6 +175,9 @@ nav {
 
 .form-control {
   border-radius: 30px !important;
+  height: calc(2.25rem + 6px);
+}
+.form-control:not(select) {
   padding: 20px 25px !important;
 }
 
@@ -337,7 +341,7 @@ nav {
 }
 
 .top-header {
-  min-height: $topbar-height;
+  height: $topbar-height;
   &.tabs {
     min-height: $topbar-height;
     .nav {
@@ -398,4 +402,8 @@ nav {
       }
     }
   }
+}
+
+.custom-font {
+  font-family: $font-family-custom;
 }

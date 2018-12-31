@@ -64,7 +64,7 @@ class QuestionsComponent extends React.Component {
                   </i>
                   </span>
                 </div>
-                <h1 className="font-weight-bold text-extra-muted">{questions.length}</h1>
+                <h1 className="font-weight-light custom-font text-extra-muted">{questions.length}</h1>
                 <h6 className="display-5 text-extra-muted">All Stakeholder Interview <br />Questions</h6>
 
                 {/* <p className="mt-4 mb-0"><span className="h4">04</span> <small className="text-white-50">General</small></p> */}
@@ -82,7 +82,7 @@ class QuestionsComponent extends React.Component {
                   </i>
                   </span>
                 </div>
-                <h1 className="display-4 font-weight-bold text-primary">12</h1>
+                <h1 className="display-4 font-weight-light custom-font text-primary">12</h1>
                 <h6 className="text-primary" >General Interview <br />Questions</h6>
               </div>
               <div className="card bg-transparent border-bottom px-5 py-4">
@@ -93,7 +93,7 @@ class QuestionsComponent extends React.Component {
                   </i>
                   </span>
                 </div>
-                <h1 className="font-weight-bold text-extra-muted">12</h1>
+                <h1 className="font-weight-light custom-font text-extra-muted">12</h1>
                 <h6 className="text-extra-muted" >Branding Interview <br />Questions</h6>
               </div>
             </div>

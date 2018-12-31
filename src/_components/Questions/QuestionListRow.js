@@ -20,8 +20,8 @@ const QuestionListRow = ({ question, onDelete }) => {
           <span className="badge badge-pill badge-light d-inline-block mr-1"><small className="text-extra-muted font-weight-bold">GENERAL</small></span>
         </div>
         <small className="text-extra-muted"><small>UPDATED ON : 12 DEC 2018</small></small>
-        <h6 className="mb-0 font-weight-normal text-capitalize text-muted question-title">
-          <Link to={'/question/' + question._id}>{question.title}</Link>
+        <h6 className="mb-0 font-weight-light text-capitalize text-muted question-title">
+          <Link className="font-weight-bold" to={'/question/' + question._id}>{question.title}</Link>
         </h6>
       </div>
     </div>

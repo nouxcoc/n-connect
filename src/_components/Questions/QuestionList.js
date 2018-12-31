@@ -20,11 +20,11 @@ const QuestionList = ({ questions, onDelete }) => {
             <div className="col-3">
               <button className="btn btn-outline-secondary"><small>CANCEL</small></button>
             </div>
-            <div className="col-6 text-center">
+            <div className="col-6 text-center p-0">
               <h6 className="display-5 text-extra-muted mt-2">26 Questions Selected</h6>
             </div>
             <div className="col-3 text-right">
-              <button className="btn btn-primary pull-right"><small>PROCEED</small></button>
+              <button className="btn btn-primary pull-right"><small>NEXT</small></button>
             </div>
           </div>
         </div>

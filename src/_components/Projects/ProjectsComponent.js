@@ -57,8 +57,7 @@ class ProjectsComponent extends React.Component {
                         <div className="scroll-cntr scollable">
                             <div className="p-5">
                                 <h1 className="display-4">Projects</h1>
-                                <p>You're logged in with React!!</p>
-                                <h2>{user.user.name} SEND ESTIMATES</h2>
+                                <h2>{user.user.name}</h2>
                             </div>
                         </div>
 

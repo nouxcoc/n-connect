@@ -18,40 +18,67 @@ class DashBoardComponent extends React.Component {
         return (
             <div className="dashboard-container">
                 <div className="row">
-                    <div className="col-3 full-height-container bg-light"></div>
-                    <div className="col-4 full-height-container"></div>
-                    <div className="col-5 full-height-container">
-                        <h1 className="display-4">DashBoard</h1>
-                        <p>You're logged in with React!!</p>
-                        <h2>WELCOME {user.user.name}</h2>
+                    <div className="col-12 full-height-container scroll-bar bg-light p-0">
+                        <div className="scollable p-5">
+                            <div className="row">
+                                <div className="col-4">
+                                    <div className="card rounded bg-warning text-white px-5 py-4">
+                                        <h2 className="mb-0 custom-font font-weight-light display-4">24</h2>
+                                        <p className="mb-0"><small>Active Projects</small></p>
+                                    </div>
+                                </div>
+                                <div className="col-4">
+                                    <div className="card rounded bg-primary text-white px-5 py-4">
+                                        <h2 className="mb-0 custom-font font-weight-light display-4">24</h2>
+                                        <p className="mb-0"><small>Completed Projects</small></p>
+                                    </div>
+                                </div>
+                                <div className="col-4">
+                                    <div className="card bg-secondary text-white rounded px-5 py-4">
+                                        <h2 className="mb-0 custom-font font-weight-light display-4">24</h2>
+                                        <p className="mb-0"><small>All Interview Questions</small></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="row mt-4">
+                                <div className="col-6">
+                                    <div className="card rounded">
+                                        <h2 className="mb-0 custom-font font-weight-light display-5 px-5 pt-4">TODO <small className="text-muted font-weight-light">List</small></h2>
+                                        <div className="top-header tabs border-bottom px-5">
+                                            <ul className="nav">
+                                                <li className="nav-item">
+                                                    <a className="nav-link active" href="#"><small>ACTIVE</small></a>
+                                                </li>
+                                                <li className="nav-item">
+                                                    <a className="nav-link" href="#"><small>DONE</small></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div className="px-5 py-4 border-bottom border-light">
+                                            <h6 className="mb-0 font-weight-bold text-primary">Create Design Document for Fitch</h6>
+                                            <p className="mb-0"><small>Active Projects</small></p>
+                                        </div>
+                                        <div className="px-5 py-4 border-bottom border-light">
+                                            <h6 className="mb-0 font-weight-bold text-primary">Create Design Document for Fitch</h6>
+                                            <p className="mb-0"><small>Active Projects</small></p>
+                                        </div>
+                                        <div className="px-5 py-4">
+                                            <h6 className="mb-0 font-weight-bold text-primary">Create Design Document for Fitch</h6>
+                                            <p className="mb-0"><small>Active Projects</small></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-6">
+                                    <div className="card rounded px-5 py-4">
+                                        <h2 className="mb-0 custom-font font-weight-light display-4">24</h2>
+                                        <p className="mb-0"><small>Completed Projects</small></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            // <div className="col-md-6">
-            //     <h1 className="display-4">DashBoard</h1>
-            //     <p>You're logged in with React!!</p>
-            //     <h2>WELCOME {user.user.name}</h2>
-            //     <h3>All registered users:</h3>
-            //     {/* {users.loading && <em>Loading users...</em>} */}
-            //     {users.error && <span className="text-danger">ERROR: {users.error}</span>}
-            //     {/* {users.items &&
-            //         <ul>
-            //             {users.items.map((user, index) =>
-            //                 <li key={user.id}>
-            //                     {user.firstName + ' ' + user.lastName}
-            //                     {
-            //                         user.deleting ? <em> - Deleting...</em>
-            //                             : user.deleteError ? <span className="text-danger"> - ERROR: {user.deleteError}</span>
-            //                                 : <span> - <a href="/" onClick={this.handleDeleteUser(user.id)}>Delete</a></span>
-            //                     }
-            //                 </li>
-            //             )}
-            //         </ul>
-            //     } */}
-            //     <p>
-            //         <Link to="/login">Logout</Link>
-            //     </p>
-            // </div>
         );
     }
 }

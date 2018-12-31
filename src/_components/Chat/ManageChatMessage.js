@@ -15,12 +15,13 @@ class ManageChatMessage extends React.Component {
 
     this.state = {
       message: Object.assign({}, props.message),
-      errors: {},
-      saving: false,
+      errors: {}
     };
 
     this.updateMessageState = this.updateMessageState.bind(this);
     this.sendMessage = this.sendMessage.bind(this);
+
+    console.log(props);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -47,12 +48,9 @@ class ManageChatMessage extends React.Component {
 
   sendMessage(event) {
     event.preventDefault();
-
     if (!this.messageFormIsValid()) {
       return;
     }
-
-    this.setState({ saving: true });
     let message = {
       msg: this.state.message.msg,
       user: this.props.user.name,
@@ -64,8 +62,7 @@ class ManageChatMessage extends React.Component {
           this.resetChatForm(message);
         })
         .catch(error => {
-          toastr.error(error);
-          this.setState({ saving: false });
+          this.handleError(error);
         });
     }
     else {
@@ -74,16 +71,18 @@ class ManageChatMessage extends React.Component {
           this.resetChatForm(message);
         })
         .catch(error => {
-          toastr.error(error);
-          this.setState({ saving: false });
+          this.handleError(error);
         });
     }
+  }
+
+  handleError(error) {
+    toastr.error(error);
   }
 
   resetChatForm(message) {
     socket.emit('message', message);
     this.setState({
-      saving: false,
       message: { msg: '', user: '', time: '' }
     });
   }
@@ -96,14 +95,12 @@ class ManageChatMessage extends React.Component {
         onSave={this.sendMessage}
         message={this.state.message}
         errors={this.state.errors}
-        saving={this.state.saving}
       />
     );
   }
 }
 
 ManageChatMessage.propTypes = {
-  message: PropTypes.object.isRequired,
   actions: PropTypes.object.isRequired
 };
 
@@ -112,13 +109,8 @@ ManageChatMessage.contextTypes = {
   router: PropTypes.object
 };
 
-function getQuestionById(questions, id) {
-  const message = questions.filter(message => message._id == id);
-  if (message.length) return message[0]; //since filter returns an array, have to grab the first.
-  return null;
-}
-
 function mapStateToProps(state, ownProps) {
+  //console.log(state);
   const { user } = state.authentication.user;
   let message = { msg: '', user: '', time: '' };
   return {

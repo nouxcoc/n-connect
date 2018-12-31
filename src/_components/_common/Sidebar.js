@@ -20,7 +20,7 @@ const Sidebar = ({ loading }) => {
         <li>
           <div className="user-info-cntr border-bottom border-light py-1">
             <div className="rounded-circle user-info bg-secondary my-2 d-flex justify-content-center align-items-center text-white align-items-center">
-              <img src="users/ad.jpg" />
+              <img src="/users/ad.jpg" />
             </div>
           </div>
         </li>
@@ -54,11 +54,11 @@ const Sidebar = ({ loading }) => {
         </li>
       </ul>
       <div className="signout-btn">
-        <Link to="/login">
+        <NavLink exact to="/login">
           <i className="material-icons">
             arrow_back
         </i>
-        </Link>
+        </NavLink>
         {/* <small className="text-extra-muted"><small>SIGN OUT</small></small> */}
       </div>
     </div>

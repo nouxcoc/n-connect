@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const MessageForm = ({ message, onSave, onChange, saving, errors }) => {
+const MessageForm = ({ message, onSave, onChange, errors }) => {
   return (
     <div className="message-type-cntr pl-4 py-3 pr-1 border-top border-med-light">
       <form>
       <div className="btn-cntr float-right">
           <button
             type="submit"
-            disabled={saving || message.msg == ""}
+            disabled={message.msg == ""}
             className="border-0 bg-transparent p-2"
             onClick={onSave} ><i className="material-icons">
               send
@@ -34,7 +34,6 @@ const MessageForm = ({ message, onSave, onChange, saving, errors }) => {
 //   allAuthors: React.PropTypes.array,
 //   onSave: React.PropTypes.func.isRequired,
 //   onChange: React.PropTypes.func.isRequired,
-//   saving: React.PropTypes.bool,
 //   errors: React.PropTypes.object
 // };
 

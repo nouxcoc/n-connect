@@ -31,8 +31,6 @@ class ManageQuestionPage extends React.Component {
     }
   }
 
-
-
   updateQuestionState(event) {
     const field = event.target.name;
     let question = Object.assign({}, this.state.question);
@@ -123,7 +121,6 @@ function getQuestionById(questions, id) {
 }
 
 function mapStateToProps(state, ownProps) {
-  console.log(ownProps);
   const questionId = ownProps.match.params.id; // from the path `/question/:id`
 
   let question = { watchHref: '', title: '', authorId: '', length: '', category: '' };

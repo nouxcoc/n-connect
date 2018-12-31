@@ -4,7 +4,6 @@ import TextInput from '../_common/TextInput';
 import SelectInput from '../_common/SelectInput';
 
 const QuestionForm = ({ question, allAuthors, onSave, onChange, saving, errors }) => {
-  
   return (
     <div className="container">
       <form>

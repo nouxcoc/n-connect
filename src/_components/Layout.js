@@ -15,7 +15,7 @@ const Layout = ({ routes }) => {
                 ))}
                 <Redirect exact from="/" to="/dashboard" />
             </Switch>
-            <AsidePanel />
+            {localStorage.getItem('user') ? <AsidePanel /> : <Redirect exact from="/" to="/login" />}
         </div>
     );
 };
