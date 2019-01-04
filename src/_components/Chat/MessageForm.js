@@ -31,7 +31,7 @@ const MessageForm = ({ message, onSave, onChange, errors }) => {
 
 // QuestionForm.propTypes = {
 //   question: React.PropTypes.object.isRequired,
-//   allAuthors: React.PropTypes.array,
+//   allCategories: React.PropTypes.array,
 //   onSave: React.PropTypes.func.isRequired,
 //   onChange: React.PropTypes.func.isRequired,
 //   errors: React.PropTypes.object

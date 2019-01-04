@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
 import { authentication } from './authentication.reducer';
-import authors from './authorReducer';
+import categories from './categoryReducer';
 import questions from './questionReducer';
 import messages from './messageReducer';
 import ajaxCallsInProgress from './ajaxStatusReducer';
@@ -14,7 +14,7 @@ const rootReducer = combineReducers({
   registration,
   users,
   alert,
-  authors,
+  categories,
   questions,
   messages,
   ajaxCallsInProgress

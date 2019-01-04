@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import TextInput from '../_common/TextInput';
 import SelectInput from '../_common/SelectInput';
 
-const QuestionForm = ({ question, allAuthors, onSave, onChange, saving, errors }) => {
+const QuestionForm = ({ question, allCategories, onSave, onChange, saving, errors }) => {
   return (
     <div className="container">
       <form>
@@ -16,26 +16,19 @@ const QuestionForm = ({ question, allAuthors, onSave, onChange, saving, errors }
           error={errors.title} />
 
         <SelectInput
-          name="authorId"
-          label="Author"
-          value={question.authorId}
-          defaultOption="Select Author"
-          options={allAuthors}
-          onChange={onChange} error={errors.authorId} />
-
-        <TextInput
-          name="category"
+          name="categoryId"
           label="Category"
-          value={question.category}
-          onChange={onChange}
-          error={errors.category} />
+          value={question.categoryId}
+          defaultOption="Select Category"
+          options={allCategories}
+          onChange={onChange} error={errors.categoryId} />
 
         <TextInput
-          name="length"
-          label="Length"
-          value={question.length}
+          name="type"
+          label="Type"
+          value={question.type}
           onChange={onChange}
-          error={errors.length} />
+          error={errors.type} />
 
         <input
           type="submit"
@@ -50,7 +43,7 @@ const QuestionForm = ({ question, allAuthors, onSave, onChange, saving, errors }
 
 // QuestionForm.propTypes = {
 //   question: React.PropTypes.object.isRequired,
-//   allAuthors: React.PropTypes.array,
+//   allCategories: React.PropTypes.array,
 //   onSave: React.PropTypes.func.isRequired,
 //   onChange: React.PropTypes.func.isRequired,
 //   saving: React.PropTypes.bool,

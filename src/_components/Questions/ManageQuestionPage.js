@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as questionActions from '../../actions/questionActions';
 import QuestionForm from './QuestionForm';
-import { authorsFormattedForDropdown } from '../../selectors/selectors';
+import { categoriesFormattedForDropdown } from '../../selectors/selectors';
 import toastr from 'toastr';
 import socketIOClient from "socket.io-client";
 const socket = socketIOClient('http://localhost:3000');
@@ -53,7 +53,7 @@ class ManageQuestionPage extends React.Component {
 
 
   saveQuestion(event) {
-    
+
     event.preventDefault();
 
     if (!this.questionFormIsValid()) {
@@ -65,7 +65,7 @@ class ManageQuestionPage extends React.Component {
       this.props.actions.updateQuestion(this.state.question)
         .then(() => {
           this.redirect();
-          socket.emit('message', this.props.question.title);
+          socket.emit('message', this.props.question.question);
         })
         .catch(error => {
           toastr.error(error);
@@ -92,7 +92,7 @@ class ManageQuestionPage extends React.Component {
   render() {
     return (
       <QuestionForm
-        allAuthors={this.props.authors}
+        allCategories={this.props.categories}
         onChange={this.updateQuestionState}
         onSave={this.saveQuestion}
         question={this.state.question}
@@ -105,7 +105,7 @@ class ManageQuestionPage extends React.Component {
 
 ManageQuestionPage.propTypes = {
   question: PropTypes.object.isRequired,
-  authors: PropTypes.array.isRequired,
+  categories: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired
 };
 
@@ -123,7 +123,7 @@ function getQuestionById(questions, id) {
 function mapStateToProps(state, ownProps) {
   const questionId = ownProps.match.params.id; // from the path `/question/:id`
 
-  let question = { watchHref: '', title: '', authorId: '', length: '', category: '' };
+  let question = { watchHref: '', title: '', categoryId: '', length: '', type: '' };
 
   if (questionId && state.questions.length > 0) {
     question = getQuestionById(state.questions, questionId);
@@ -131,7 +131,7 @@ function mapStateToProps(state, ownProps) {
 
   return {
     question: question,
-    authors: authorsFormattedForDropdown(state.authors)
+    categories: categoriesFormattedForDropdown(state.categories)
   };
 }
 

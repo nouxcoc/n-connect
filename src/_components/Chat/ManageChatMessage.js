@@ -90,7 +90,7 @@ class ManageChatMessage extends React.Component {
   render() {
     return (
       <MessageForm
-        allAuthors={this.props.authors}
+        allCategories={this.props.categories}
         onChange={this.updateMessageState}
         onSave={this.sendMessage}
         message={this.state.message}
