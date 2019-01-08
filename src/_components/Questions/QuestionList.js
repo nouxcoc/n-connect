@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import QuestionListRow from './QuestionListRow';
 
-const QuestionList = ({ questions, onDelete }) => {
+const QuestionList = ({ questions, onDelete, confirmDelete, cancelDelete, onEdit, selectedToDelete, selectedId }) => {
   return (
     <div className="row d-flex">
 
@@ -31,11 +31,22 @@ const QuestionList = ({ questions, onDelete }) => {
       </div>
 
       <div className="scroll-cntr scollable">
-        <div className="col-12 border-bottom border-light px-4 py-3">
-          <h5 className="mb-0 text-muted font-weight-bold">GENERAL</h5>
-        </div>
-        {questions.map(question =>
-          <QuestionListRow key={question._id} question={question} onDelete={onDelete} />
+        {questions.map(group =>
+          <div key={group[0]._id}>
+            <div className="col-12 bg-light px-4 py-3">
+              <h6 className="mb-0 text-muted font-weight-bold">{group[0].categoryId}</h6>
+            </div>
+            {group.map(question =>
+              <QuestionListRow key={question._id}
+                onEdit={onEdit}
+                question={question}
+                selectedId={selectedId}
+                selectedToDelete={selectedToDelete}
+                onDelete={onDelete}
+                confirmDelete={confirmDelete}
+                cancelDelete={cancelDelete} />
+            )}
+          </div>
         )}
       </div>
     </div>

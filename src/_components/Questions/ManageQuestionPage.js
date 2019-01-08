@@ -11,27 +11,35 @@ const socket = socketIOClient('http://localhost:3000');
 // import axios from 'axios';
 
 class ManageQuestionPage extends React.Component {
+
   constructor(props, context) {
     super(props, context);
-
     this.state = {
       question: Object.assign({}, props.question),
       errors: {},
       saving: false,
     };
-
-    this.updateQuestionState = this.updateQuestionState.bind(this);
-    this.saveQuestion = this.saveQuestion.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.question.id != nextProps.question.id) {
-      // Necessary to populate form when existing question is loaded directly.
-      this.setState({ question: Object.assign({}, nextProps.question) });
+    let prev = this.getQuestionById(this.props.questions, this.props.selectedId),
+      nxt = this.getQuestionById(nextProps.questions, nextProps.selectedId);
+    if (nxt && prev != nxt) {
+      this.setState({ question: Object.assign({}, nxt), errors: {} });
+    }
+    else {
+      let q = { categoryId: '', title: '', type: 'stakeholder' }
+      this.setState({ question: Object.assign({}, q), errors: {} });
     }
   }
 
-  updateQuestionState(event) {
+  getQuestionById(questions, id) {
+    const question = questions.filter(question => question._id == id);
+    if (question.length) return question[0]; //since filter returns an array, have to grab the first.
+    return null;
+  }
+
+  updateQuestionState = (event) => {
     const field = event.target.name;
     let question = Object.assign({}, this.state.question);
     question[field] = event.target.value;
@@ -52,8 +60,7 @@ class ManageQuestionPage extends React.Component {
   }
 
 
-  saveQuestion(event) {
-
+  saveQuestion = (event) => {
     event.preventDefault();
 
     if (!this.questionFormIsValid()) {
@@ -62,10 +69,11 @@ class ManageQuestionPage extends React.Component {
 
     this.setState({ saving: true });
     if (this.state.question._id) {
+      this.state.question.updatedOn = new Date();
+      this.state.question.updatedBy = this.props.user.name;
       this.props.actions.updateQuestion(this.state.question)
         .then(() => {
           this.redirect();
-          socket.emit('message', this.props.question.question);
         })
         .catch(error => {
           toastr.error(error);
@@ -73,6 +81,8 @@ class ManageQuestionPage extends React.Component {
         });
     }
     else {
+      this.state.question.createdOn = new Date();
+      this.state.question.createdBy = this.props.user.name;
       this.props.actions.saveQuestion(this.state.question)
         .then(() => this.redirect())
         .catch(error => {
@@ -86,19 +96,31 @@ class ManageQuestionPage extends React.Component {
   redirect() {
     this.setState({ saving: false });
     toastr.success('Question saved');
-    this.props.history.push('/questions');
+    this.props.onHideEdit();
   }
 
   render() {
     return (
-      <QuestionForm
-        allCategories={this.props.categories}
-        onChange={this.updateQuestionState}
-        onSave={this.saveQuestion}
-        question={this.state.question}
-        errors={this.state.errors}
-        saving={this.state.saving}
-      />
+      <div className="question-edit-cntr">
+        <div className="top-header border-bottom border-med-light px-4 pt-2">
+          <div className="row mt-2">
+            <div className="col-12 px-4">
+              <h6 className="display-5 text-extra-muted font-weight-bold mt-2"> &nbsp;+ ADD NEW QUESTION</h6>
+            </div>
+          </div>
+        </div>
+        <div className="form-cntr p-4">
+          <QuestionForm
+            allCategories={this.props.categories}
+            onChange={this.updateQuestionState}
+            onSave={this.saveQuestion}
+            question={this.state.question}
+            errors={this.state.errors}
+            saving={this.state.saving}
+            onHideEdit={this.props.onHideEdit}
+          />
+        </div>
+      </div>
     );
   }
 }
@@ -114,23 +136,13 @@ ManageQuestionPage.contextTypes = {
   router: PropTypes.object
 };
 
-function getQuestionById(questions, id) {
-  const question = questions.filter(question => question._id == id);
-  if (question.length) return question[0]; //since filter returns an array, have to grab the first.
-  return null;
-}
-
 function mapStateToProps(state, ownProps) {
-  const questionId = ownProps.match.params.id; // from the path `/question/:id`
-
-  let question = { watchHref: '', title: '', categoryId: '', length: '', type: '' };
-
-  if (questionId && state.questions.length > 0) {
-    question = getQuestionById(state.questions, questionId);
-  }
-
+  const { user } = state.authentication.user;
+  let question = { categoryId: '', title: '', type: 'stakeholder' };
   return {
+    user: user,
     question: question,
+    questions: state.questions,
     categories: categoriesFormattedForDropdown(state.categories)
   };
 }

@@ -12,7 +12,5 @@ export default function ajaxStatusReducer(state = 0, action) {
     actionTypeEndsInSuccess(action.type)) {
     return state - 1;
   }
-
-
   return state;
 }

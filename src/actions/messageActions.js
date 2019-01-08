@@ -22,7 +22,6 @@ export function deleteMessageSuccess(message) {
 
 export function loadMessages() {
   return function (dispatch) {
-    dispatch(beginAjaxCall());
     return axios.get(`${baseurl}messages`)
       .then(res => {
         dispatch(loadMessageSuccess(res.data));
@@ -34,7 +33,6 @@ export function loadMessages() {
 
 export function sendMessage(message) {
   return function (dispatch, getState) {
-    dispatch(beginAjaxCall());
     return axios.post(`${baseurl}messages`, message)
       .then(res => {
         dispatch(createMessageSuccess(res.data));
@@ -47,7 +45,6 @@ export function sendMessage(message) {
 
 export function updateMessage(message) {
   return function (dispatch, getState) {
-    dispatch(beginAjaxCall());
     return axios.put(`${baseurl}messages/${message._id}`, message)
       .then(res => {
         dispatch(updateMessageSuccess(res.data));
@@ -60,7 +57,6 @@ export function updateMessage(message) {
 
 export function deleteMessage(messageId) {
   return function (dispatch, getState) {
-    dispatch(beginAjaxCall());
     return axios.delete(`${baseurl}messages/${messageId}`)
       .then(res => {
         dispatch(deleteMessageSuccess(res.data));

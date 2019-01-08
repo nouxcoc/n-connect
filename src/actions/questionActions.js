@@ -37,7 +37,6 @@ export function saveQuestion(question) {
     dispatch(beginAjaxCall());
     return axios.post(`${baseurl}questions`, question)
       .then(res => {
-        console.log(res.data);
         dispatch(createQuestionSuccess(res.data));
       }).catch((error) => {
         dispatch(ajaxCallError(error));

@@ -6,6 +6,7 @@ import Moment from 'react-moment';
 import * as messageActions from '../../actions/messageActions';
 import toastr from 'toastr';
 import { ManageChatMessage } from './ManageChatMessage';
+import _ from "lodash";
 
 import socketIOClient from "socket.io-client";
 const socket = socketIOClient('http://localhost:3000');
@@ -16,15 +17,9 @@ class ChatComponent extends React.Component {
     super(props, context);
 
     this.state = {
-      selectedChat: {
-        msg: "",
-        user: "",
-        time: ""
-      }
+      selectedChat: { msg: "", user: "", time: "" }
     };
 
-    this.deleteChat = this.deleteChat.bind(this);
-    this.editChat = this.editChat.bind(this);
     this.updateChat();
   }
 
@@ -39,7 +34,7 @@ class ChatComponent extends React.Component {
     });
   }
 
-  deleteChat(messageId) {
+  deleteChat = (messageId) => {
     this.props.actions.deleteMessage(messageId)
       .then(() => {
         socket.emit('message', messageId);
@@ -49,15 +44,6 @@ class ChatComponent extends React.Component {
       });
   }
 
-  editChat(messageId) {
-    let message;
-    if (messageId && this.props.messages.length > 0) {
-      message = this.getMessageById(this.props.messages, messageId);
-    }
-    this.setState({
-      selectedChat : message
-    })
-  }
 
   getMessageById(messages, id) {
     const message = messages.filter(message => message._id == id);
@@ -71,36 +57,43 @@ class ChatComponent extends React.Component {
     return (
       <div>
         <div className="chat-scroll-cntr scollable">
-          <div className="p-4">
-            {messages.map(message =>
-              <div key={message._id} className="message-cntr">
-                <div className="rounded-circle user-info bg-secondary">
-                  <img src={'/users/' + message.user + '.jpg'} />
-                </div>
-                <div className="desc text-muted">
-                  <small className="d-block">
-                    <span className={user.user.name == message.user ? 'text-capitalize text-primary font-weight-bold' : 'text-capitalize font-weight-bold'}>{message.user}</span>
-                    <small className="text-extra-muted ml-3">
-                      <Moment format="HH:mm">
-                        {message.time}
-                      </Moment></small>
+          <div className="px-4 py-2">
+            {messages.map(group =>
+              <div key={group[0]._id} className="my-4">
+                <small className="text-extra-muted">
+                  <small><Moment format="DD MMM YY">
+                    {group[0].time}
+                  </Moment>
                   </small>
-                  <small className={user.user.name == message.user ? 'text-dark' : ''}>{message.msg}</small>
-                </div>
-                {user.user.name == message.user ? <div className="floating-cntr mt-2">
-                  <span className="rounded-btn bg-light" onClick={() => this.deleteChat(message._id)}>
-                    <i className="material-icons text-danger">delete</i>
-                  </span>
-                  <span className="rounded-btn bg-light" onClick={() => this.editChat(message._id)}>
-                    <i className="material-icons text-primary">edit</i>
-                  </span>
-                </div> : null}
+                </small>
+                {group.map(chat =>
+                  <div key={chat._id} className="message-cntr">
+                    <div className="rounded-circle user-info bg-secondary">
+                      <img src={'/users/' + chat.user + '.jpg'} />
+                    </div>
+                    <div className="desc text-muted">
+                      <small className="d-block">
+                        <span className={user.user.name == chat.user ? 'text-capitalize text-primary font-weight-bold' : 'text-capitalize font-weight-bold'}>{chat.user}</span>
+                        <small className="text-extra-muted float-right ml-3">
+                          <Moment format="HH:mm">
+                            {chat.time}
+                          </Moment></small>
+                      </small>
+                      <small className={user.user.name == chat.user ? 'text-dark' : ''}>{chat.msg}</small>
+                    </div>
+                    {user.user.name == chat.user ? <div className="floating-cntr mt-2">
+                      <span className="rounded-btn bg-light" onClick={() => this.deleteChat(chat._id)}>
+                        <i className="material-icons text-danger">delete</i>
+                      </span>
+                    </div> : null}
 
+                  </div>
+                )}
               </div>
             )}
           </div>
         </div>
-        <ManageChatMessage selectedChat={this.state.selectedChat} />
+        <ManageChatMessage />
       </div>
     );
   }
@@ -114,8 +107,13 @@ ChatComponent.propTypes = {
 function mapStateToProps(state, ownProps) {
   const { authentication, messages } = state;
   const { user } = authentication;
+  let groupedMessages = _.map(_.groupBy(messages, function (i) {
+    let filterDate = new Date(i.time).setHours(0, 0, 0, 0);
+    return filterDate;
+  }));
   return {
-    user, messages
+    user,
+    messages: groupedMessages
   };
 }
 

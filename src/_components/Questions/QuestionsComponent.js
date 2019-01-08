@@ -5,69 +5,67 @@ import { bindActionCreators } from 'redux';
 import * as questionActions from '../../actions/questionActions';
 import QuestionList from './QuestionList';
 import toastr from 'toastr';
+import _ from "lodash";
+import { ManageQuestionPage } from './ManageQuestionPage';
 
 
 class QuestionsComponent extends React.Component {
-  constructor(props, context) {
-    super(props, context);
-    this.redirectToAddQuestionPage = this.redirectToAddQuestionPage.bind(this);
-    this.deleteQuestion = this.deleteQuestion.bind(this);
+  state = {
+    addEditActive: false,
+    selectedToDelete: false,
+    questionId: ''
+  };
+
+  addEditQuestion = (questionId) => {
+    this.setState({ addEditActive: true, selectedId: questionId ? questionId : null });
   }
 
-  redirectToAddQuestionPage() {
-    this.props.history.push('/question');
+  hideEditing = () => {
+    this.setState({ addEditActive: false });
   }
 
-  deleteQuestion(questionId) {
+  confirmDeleteQuestion = (questionId) => {
+    this.setState({ selectedToDelete: true, selectedId: questionId });
+  }
+
+  cancelDeleteQuestion = () => {
+    this.setState({ selectedToDelete: false, selectedId: null });
+  }
+
+  deleteQuestion = (questionId) => {
     this.props.actions.deleteQuestion(questionId)
       .then(() => { toastr.success('Deleted question successfully'); })
       .catch(error => {
         toastr.error(error);
         this.setState({ saving: false });
+        this.setState({ selectedToDelete: false, selectedId: null });
       });
   }
 
   render() {
-    const { questions } = this.props;
+    const { questions, stakeHolderQuestions, userQuestions } = this.props;
     return (
       <div className="dashboard-container">
         <div className="row">
           <div className="col-5 full-height-container question-type-section p-0">
-            <div className="top-header tabs border-bottom px-5">
-              <ul className="nav">
-                <li className="nav-item">
-                  <a className="nav-link active" href="#"><small>STAKEHOLDER</small></a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#"><small>USER</small></a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#"><small>ALL</small></a>
-                </li>
-              </ul>
+            <div className="top-header border-bottom px-4 pt-2">
+              <div className="row mt-2">
+                <div className="col-12">
+                  <button className="btn btn-secondary"><small>PREPARE QUESTIONNAIRE</small></button>
+                </div>
+              </div>
             </div>
+
             <div className="scroll-cntr scollable">
               {/* <div className="px-5 py-3 border-bottom">
-              <span className="badge badge-pill bg-light d-inline-block px-3 py-2 font-weight-normal text-muted m-1">General</span>
-              <span className="badge badge-pill bg-light d-inline-block px-3 py-2 font-weight-normal text-muted m-1">COMMON</span>
-              <span className="badge badge-pill bg-light d-inline-block px-3 py-2 font-weight-normal text-muted m-1">BRANDING</span>
-            </div> */}
-              <div className="px-5 py-4 border-bottom">
-                <button className="btn btn-secondary"><small>PREPARE QUESTIONNAIRE</small></button>
-              </div>
+                <span className="badge badge-pill bg-light d-inline-block px-3 py-2 font-weight-normal text-muted m-1">General</span>
+                <span className="badge badge-pill bg-light d-inline-block px-3 py-2 font-weight-normal text-muted m-1">COMMON</span>
+                <span className="badge badge-pill bg-light d-inline-block px-3 py-2 font-weight-normal text-muted m-1">BRANDING</span>
+              </div> */}
 
               <div className="card bg-transparent border-bottom px-5 py-4">
-                <div className="floating-cntr">
-                  <span className="rounded-btn border border-dark floated" onClick={this.redirectToAddQuestionPage}>
-                    <i className="material-icons text-dark mr-4">
-                      add
-                  </i>
-                  </span>
-                </div>
-                <h1 className="font-weight-light custom-font text-extra-muted">{questions.length}</h1>
-                <h6 className="display-5 text-extra-muted">All Stakeholder Interview <br />Questions</h6>
-
-                {/* <p className="mt-4 mb-0"><span className="h4">04</span> <small className="text-white-50">General</small></p> */}
+                <h1 className="font-weight-light custom-font text-extra-muted">{stakeHolderQuestions.length + userQuestions.length}</h1>
+                <h6 className="display-5 text-extra-muted">All Interview <br />Questions</h6>
               </div>
               <div className="card px-5 py-4 border-bottom">
                 <div className="floating-cntr">
@@ -76,38 +74,39 @@ class QuestionsComponent extends React.Component {
                     speaker_notes
                   </i>
                 </span> */}
-                  <span className="rounded-btn bg-primary floated" onClick={this.redirectToAddQuestionPage}>
+                  <span className={"rounded-btn bg-primary floated " + (this.state.addEditActive ? 'disabled' : '')} onClick={this.addEditQuestion}>
                     <i className="material-icons text-white mr-4">
                       add
                   </i>
                   </span>
                 </div>
-                <h1 className="display-4 font-weight-light custom-font text-primary">12</h1>
-                <h6 className="text-primary" >General Interview <br />Questions</h6>
+                <h1 className="display-4 font-weight-light custom-font text-primary">{stakeHolderQuestions.length}</h1>
+                <h6 className="text-primary" >Stakeholder Interview <br />Questions</h6>
               </div>
               <div className="card bg-transparent border-bottom px-5 py-4">
                 <div className="floating-cntr">
-                  <span className="rounded-btn border border-dark floated">
+                  <span className={"rounded-btn border border-dark floated " + (this.state.addEditActive ? 'disabled' : '')} onClick={this.addEditQuestion}>
                     <i className="material-icons text-dark mr-4">
                       add
                   </i>
                   </span>
                 </div>
-                <h1 className="font-weight-light custom-font text-extra-muted">12</h1>
-                <h6 className="text-extra-muted" >Branding Interview <br />Questions</h6>
+                <h1 className="font-weight-light custom-font text-extra-muted">{userQuestions.length}</h1>
+                <h6 className="text-extra-muted" >User Interview <br />Questions</h6>
               </div>
             </div>
-
           </div>
 
-          <div className="col-7 full-height-container questions-section p-0">
+          <div className={"col-7 full-height-container questions-section p-0 " + (this.state.addEditActive ? 'question-edit-active' : '')}>
+            <ManageQuestionPage selectedId={this.state.selectedId} onHideEdit={this.hideEditing} />
             <div className="px-3">
-
-              {/* <input type="submit"
-                value="Add Question"
-                className="btn btn-primary mb-3"
-                onClick={this.redirectToAddQuestionPage} /> */}
-              <QuestionList questions={questions} onDelete={this.deleteQuestion} />
+              <QuestionList onEdit={this.addEditQuestion}
+                selectedId={this.state.selectedId}
+                selectedToDelete={this.state.selectedToDelete}
+                questions={questions}
+                onDelete={this.deleteQuestion}
+                cancelDelete={this.cancelDeleteQuestion}
+                confirmDelete={this.confirmDeleteQuestion} />
             </div>
           </div>
           <div className="col-6 full-height-container p-0 d-none">
@@ -157,8 +156,13 @@ QuestionsComponent.propTypes = {
 };
 
 function mapStateToProps(state, ownProps) {
+  const stakeHolderQuestions = state.questions.filter(question => question.type == 'stakeholder');
+  const userQuestions = state.questions.filter(question => question.type == 'user');
+  const groupedQuestions = _.map(_.groupBy(state.questions, 'categoryId'));
   return {
-    questions: state.questions
+    questions: groupedQuestions,
+    stakeHolderQuestions,
+    userQuestions
   };
 }
 
