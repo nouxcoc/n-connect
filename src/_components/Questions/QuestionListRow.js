@@ -35,7 +35,7 @@ const QuestionListRow = ({ question, onDelete, confirmDelete, cancelDelete, onEd
             </Moment>
           </small>
         </small>
-        <h6 className="mb-0 font-weight-nonrmal text-muted question-title">
+        <h6 className="mb-0 font-weight-normal text-muted question-title">
           {question.title}
         </h6>
       </div>

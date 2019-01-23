@@ -1,13 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-
+import { store } from '../../_helpers';
 import { userActions } from '../../_actions';
 import { ToDoComponent } from './ToDo/ToDoComponent';
-import { ActiveProjectsComponent } from './ActiveProjects/ActiveProjectsComponent';
+import { NotesComponent } from './Notes/NotesComponent';
+import { loadToDoList } from '../../actions/todoActions';
+import { loadNotes } from '../../actions/notesActions';
 
 class DashBoardComponent extends React.Component {
     componentDidMount() {
+        const { user } = this.props.user;
+        store.dispatch(loadToDoList(user._id));
+        store.dispatch(loadNotes(user._id));
         this.props.dispatch(userActions.getAll());
     }
 
@@ -21,8 +26,11 @@ class DashBoardComponent extends React.Component {
             <div className="dashboard-container">
                 <div className="row">
                     <div className="col-12 full-height-container scroll-bar bg-light p-0">
-                        <div className="scollable p-5">
+                        <div className="scollable px-5 py-4">
                             <div className="row">
+                                <div className="col-12">
+                                    <h1 className=" text-muted custom-font font-weight-light">Hello <span className="font-weight-normal">Anil</span></h1>
+                                </div>
                                 <div className="col-4">
                                     <div className="card rounded bg-warning text-white px-5 py-4">
                                         <h2 className="mb-0 custom-font font-weight-light display-4">24</h2>
@@ -44,10 +52,10 @@ class DashBoardComponent extends React.Component {
                             </div>
                             <div className="row mt-4">
                                 <div className="col-6">
-                                    <ToDoComponent></ToDoComponent>
+                                    <ToDoComponent />
                                 </div>
                                 <div className="col-6">
-                                    <ActiveProjectsComponent></ActiveProjectsComponent>
+                                    <NotesComponent />
                                 </div>
                             </div>
                         </div>

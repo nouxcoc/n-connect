@@ -46,7 +46,7 @@ class ChatComponent extends React.Component {
 
 
   getMessageById(messages, id) {
-    const message = messages.filter(message => message._id == id);
+    const message = messages.filter(message => message._id === id);
     if (message.length) return message[0]; //since filter returns an array, have to grab the first.
     return null;
   }
@@ -69,19 +69,19 @@ class ChatComponent extends React.Component {
                 {group.map(chat =>
                   <div key={chat._id} className="message-cntr">
                     <div className="rounded-circle user-info bg-secondary">
-                      <img src={'/users/' + chat.user + '.jpg'} />
+                      <img src={'/users/' + chat.user + '.jpg'} alt="" />
                     </div>
                     <div className="desc text-muted">
                       <small className="d-block">
-                        <span className={user.user.name == chat.user ? 'text-capitalize text-primary font-weight-bold' : 'text-capitalize font-weight-bold'}>{chat.user}</span>
+                        <span className={user.user.name === chat.user ? 'text-capitalize text-primary font-weight-bold' : 'text-capitalize font-weight-bold'}>{chat.user}</span>
                         <small className="text-extra-muted float-right ml-3">
                           <Moment format="HH:mm">
                             {chat.time}
                           </Moment></small>
                       </small>
-                      <small className={user.user.name == chat.user ? 'text-dark' : ''}>{chat.msg}</small>
+                      <small className={user.user.name === chat.user ? 'text-dark' : ''}>{chat.msg}</small>
                     </div>
-                    {user.user.name == chat.user ? <div className="floating-cntr mt-2">
+                    {user.user.name === chat.user ? <div className="floating-cntr mt-2">
                       <span className="rounded-btn bg-light" onClick={() => this.deleteChat(chat._id)}>
                         <i className="material-icons text-danger">delete</i>
                       </span>

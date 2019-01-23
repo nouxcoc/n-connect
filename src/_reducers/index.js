@@ -1,15 +1,16 @@
 import { combineReducers } from 'redux';
-
 import { authentication } from './authentication.reducer';
 import categories from './categoryReducer';
 import questions from './questionReducer';
+import todolist from './todoReducer';
+import notes from './notesReducer';
 import messages from './messageReducer';
 import ajaxCallsInProgress from './ajaxStatusReducer';
 import { registration } from './registration.reducer';
 import { users } from './users.reducer';
 import { alert } from './alert.reducer';
 
-const rootReducer = combineReducers({
+const appReducer = combineReducers({
   authentication,
   registration,
   users,
@@ -17,7 +18,17 @@ const rootReducer = combineReducers({
   categories,
   questions,
   messages,
+  todolist,
+  notes,
   ajaxCallsInProgress
 });
+
+const rootReducer = (state, action) => {
+  if (action.type === 'USERS_LOGOUT') {
+    state = undefined
+  }
+
+  return appReducer(state, action);
+}
 
 export default rootReducer;

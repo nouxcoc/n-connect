@@ -7,7 +7,7 @@ import QuestionForm from './QuestionForm';
 import { categoriesFormattedForDropdown } from '../../selectors/selectors';
 import toastr from 'toastr';
 import socketIOClient from "socket.io-client";
-const socket = socketIOClient('http://localhost:3000');
+//const socket = socketIOClient('http://localhost:3000');
 // import axios from 'axios';
 
 class ManageQuestionPage extends React.Component {
@@ -24,7 +24,7 @@ class ManageQuestionPage extends React.Component {
   componentWillReceiveProps(nextProps) {
     let prev = this.getQuestionById(this.props.questions, this.props.selectedId),
       nxt = this.getQuestionById(nextProps.questions, nextProps.selectedId);
-    if (nxt && prev != nxt) {
+    if (nxt && prev !== nxt) {
       this.setState({ question: Object.assign({}, nxt), errors: {} });
     }
     else {
@@ -34,7 +34,7 @@ class ManageQuestionPage extends React.Component {
   }
 
   getQuestionById(questions, id) {
-    const question = questions.filter(question => question._id == id);
+    const question = questions.filter(question => question._id === id);
     if (question.length) return question[0]; //since filter returns an array, have to grab the first.
     return null;
   }

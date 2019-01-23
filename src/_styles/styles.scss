@@ -57,6 +57,7 @@ body {
   border: 0;
   border-radius: 0;
   width: 100%;
+  overflow: hidden;
   .badge-light {
     background: $gray-200;
     color: $gray-700;
@@ -129,20 +130,31 @@ body {
   max-height: calc(100vh - #{$topbar-height + 1});
   height: calc(100vh - #{$topbar-height + 1});
 }
+.todo-widget, .note-widget{
+  min-height: 300px;
+  max-height: 300px;
+}
 
-.question-edit-cntr {
+.md-36{
+  font-size: 36px;
+}
+
+.question-edit-cntr, .todo-edit-cntr, .note-edit-cntr {
   position: absolute;
   right: -100%;
   width: 100%;
+  opacity: 0;
   background: $white;
   z-index: 99;
   height: 100%;
-  transition: right 0.3s ease-in-out;
+  top: 0;
+  transition: all 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-.question-edit-active {
-  .question-edit-cntr {
+.question-edit-active, .todo-edit-active, .note-edit-active {
+  .question-edit-cntr, .todo-edit-cntr, .note-edit-cntr {
     right: 0;
+    opacity: 1;
   }
 }
 
@@ -350,6 +362,9 @@ nav {
   right: 25px;
   transform: translate(0%, 0%);
   z-index: 1;
+  &.center {
+    transform: translate(0%, -50%);
+  }
 }
 .rounded-btn {
   width: 50px;
@@ -445,4 +460,8 @@ nav {
 }
 input {
   font-family: $font-family-base !important;
+}
+
+.cursor-pointer{
+  cursor: pointer;
 }

@@ -7,7 +7,8 @@ import './App.scss';
 import { history } from './_helpers';
 import { alertActions } from './_actions';
 import routes from './routes';
-import { LoginPage } from './LoginPage';
+
+//process.env.NODE_ENV
 
 class App extends Component {
   constructor(props) {
