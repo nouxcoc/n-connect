@@ -9,6 +9,9 @@ import * as noteActions from '../../../actions/notesActions';
 import { ManageNote } from './ManageNote';
 import NoResults from '../../_common/NoResults';
 
+import Fab from '@material-ui/core/Fab';
+import Icon from '@material-ui/core/Icon';
+
 class NotesComponent extends React.Component {
 
     state = {
@@ -19,7 +22,7 @@ class NotesComponent extends React.Component {
     };
 
     componentDidMount() {
-        this.filterNotes('text');
+        //this.filterNotes('text');
         //this.props.dispatch(userActions.getAll());
     }
 
@@ -57,15 +60,13 @@ class NotesComponent extends React.Component {
                             <a className={'nav-link cursor-pointer ' + (this.state.filterType == 'text' ? 'active' : '')} onClick={() => this.filterNotes('text')}><small>TEXT</small></a>
                         </li>
                         <li className="nav-item cursor-pointer">
-                            <a className={'nav-link cursor-pointer ' + (this.state.filterType == 'url' ? 'active' : '')} onClick={() => this.filterNotes('url')}><small>URL</small></a>
+                            <a className={'nav-link cursor-pointer ' + (this.state.filterType == 'url' ? 'active' : '')} onClick={() => this.filterNotes('url')}><small>REF URL</small></a>
                         </li>
                     </ul>
                     <div className="floating-cntr center">
-                        <span className="rounded-btn bg-secondary" onClick={this.addEditNote}>
-                            <i className="material-icons text-white mr-4">
-                                add
-                            </i>
-                        </span>
+                        <Fab size="medium" color="secondary" aria-label="Add" onClick={this.addEditNote}>
+                            <Icon>add</Icon>
+                        </Fab>
                     </div>
                 </div>
                 <div className="scollable note-widget pt-3">
@@ -77,6 +78,7 @@ class NotesComponent extends React.Component {
                                 key={note._id}
                                 onDelete={this.deleteNote}
                                 onEdit={this.addEditNote}
+                                onCopy={this.onCopy}
                             />
                         )}
                     <ManageNote

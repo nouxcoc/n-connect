@@ -24,7 +24,7 @@ class ManageNote extends React.Component {
       this.setState({ note: Object.assign({}, nxt), errors: {} });
     }
     else {
-      let q = { title: '', type: 'text' }
+      let q = { title: '', type: 'text', label : '' }
       this.setState({ note: Object.assign({}, q), errors: {} });
     }
   }
@@ -133,7 +133,7 @@ ManageNote.contextTypes = {
 
 function mapStateToProps(state, ownProps) {
   const { user } = state.authentication.user;
-  let note = { userId: '', title: '', type: 'personal' };
+  let note = { userId: '', title: '', type: 'personal', label : '' };
   return {
     user: user,
     note: note,

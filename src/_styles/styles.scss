@@ -139,6 +139,13 @@ body {
   font-size: 36px;
 }
 
+button:focus{
+  outline: none !important;
+}
+a:hover{
+  text-decoration: none !important;
+}
+
 .question-edit-cntr, .todo-edit-cntr, .note-edit-cntr {
   position: absolute;
   right: -100%;

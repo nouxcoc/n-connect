@@ -14,6 +14,13 @@ const NoteForm = ({ note, onSave, onHideEdit, onChange, saving, errors }) => {
       <form>
 
         <TextField
+          label="Label"
+          className="d-flex mb-4 pb-3"
+          name="label"
+          value={note.label}
+          onChange={onChange}
+        />
+        <TextField
           label="Note"
           className="d-flex mb-4 pb-3"
           name="title"

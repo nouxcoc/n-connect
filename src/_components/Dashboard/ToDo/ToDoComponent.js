@@ -9,6 +9,9 @@ import * as todoActions from '../../../actions/todoActions';
 import { ManageToDo } from './ManageToDo';
 import NoResults from '../../_common/NoResults';
 
+import Fab from '@material-ui/core/Fab';
+import Icon from '@material-ui/core/Icon';
+
 class ToDoComponent extends React.Component {
 
     state = {
@@ -78,11 +81,9 @@ class ToDoComponent extends React.Component {
                         </li>
                     </ul>
                     <div className="floating-cntr center">
-                        <span className="rounded-btn bg-secondary" onClick={this.addEditToDo}>
-                            <i className="material-icons text-white mr-4">
-                                add
-                            </i>
-                        </span>
+                        <Fab size="medium" color="secondary" aria-label="Add" onClick={this.addEditToDo}>
+                            <Icon>add</Icon>
+                        </Fab>
                     </div>
                 </div>
                 <div className="scollable todo-widget pt-3">
@@ -129,9 +130,9 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
     return {
-      actions: bindActionCreators(todoActions, dispatch)
+        actions: bindActionCreators(todoActions, dispatch)
     };
-  }
+}
 
 const connectedHomePage = connect(mapStateToProps, mapDispatchToProps)(ToDoComponent);
 export { connectedHomePage as ToDoComponent };

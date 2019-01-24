@@ -55,9 +55,9 @@ const Sidebar = ({ loading }) => {
       </ul>
       <div className="signout-btn">
         <NavLink exact to="/login">
-          <i className="material-icons">
-            arrow_back
-        </i>
+          <i class="material-icons">
+            power_settings_new
+          </i>
         </NavLink>
         {/* <small className="text-extra-muted"><small>SIGN OUT</small></small> */}
       </div>
