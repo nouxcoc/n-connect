@@ -18,7 +18,7 @@ function login(username, password) {
         body: JSON.stringify({ username, password })
     };
 
-    return fetch(`https://n-connect.herokuapp.com/auth/login`, requestOptions)
+    return fetch(`https://n-connect-api.herokuapp.com/auth/login`, requestOptions)
         .then(handleResponse)
         .then(user => {
             // login successful if there's a jwt token in the response
