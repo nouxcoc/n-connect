@@ -53,8 +53,8 @@ class NotesComponent extends React.Component {
 
         return (
             <div className={"card rounded " + (this.state.addEditActive ? 'note-edit-active' : '')}>
-                <h2 className="mb-0 custom-font font-weight-light display-5 px-5 pt-4">NOTES</h2>
-                <div className="top-header tabs border-bottom px-5">
+                <h4 className="mb-0 custom-font font-weight-light display-5 px-4 pt-4">My NOTES</h4>
+                <div className="top-header tabs border-bottom px-4">
                     <ul className="nav">
                         <li className="nav-item">
                             <a className={'nav-link cursor-pointer ' + (this.state.filterType == 'text' ? 'active' : '')} onClick={() => this.filterNotes('text')}><small>TEXT</small></a>
@@ -99,10 +99,7 @@ NotesComponent.propTypes = {
 
 
 function mapStateToProps(state, ownProps) {
-    const notes = state.notes;
-    // const stakeHolderQuestions = state.questions.filter(question => question.type == 'stakeholder');
-    // const userQuestions = state.questions.filter(question => question.type == 'user');
-    // const groupedQuestions = _.map(_.groupBy(state.questions, 'categoryId'));
+    const notes = _.sortBy(state.notes, 'createdOn');
     return {
         notes
     };

@@ -43,7 +43,7 @@ class LoginPage extends React.Component {
         const { username, password, submitted } = this.state;
         return (
             <div className="login-bg login-form text-center">
-                <div className="row justify-content-center align-items-center">
+                <div className="row justify-content-center align-items-center m-0">
                     <div className="col-8 col-sm-6 col-md-4 col-lg-3 col-xl-2">
                         <div className="form-group">
                             <div className="rounded-circle user-info bg-secondary d-flex justify-content-center align-items-center text-white align-items-center">

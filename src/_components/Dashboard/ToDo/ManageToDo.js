@@ -137,7 +137,7 @@ ManageToDo.contextTypes = {
 
 function mapStateToProps(state, ownProps) {
   const { user } = state.authentication.user;
-  let todo = { userId: '', title: '', type: 'personal' };
+  let todo = { userId: '', title: '', type: 'work' };
   return {
     user: user,
     todo: todo,

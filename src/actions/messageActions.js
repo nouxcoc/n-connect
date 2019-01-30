@@ -2,7 +2,7 @@ import * as types from './actionTypes';
 import { beginAjaxCall, ajaxCallError } from './ajaxStatusActions';
 import axios from 'axios';
 
-const baseurl = "https://n-connect-api.herokuapp.com/";
+const baseurl = "http://localhost:3000/";
 
 export function loadMessageSuccess(messages) {
   return { type: types.LOAD_MESSAGES_SUCCESS, messages };

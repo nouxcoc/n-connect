@@ -6,8 +6,8 @@ const QuestionList = ({ questions, onDelete, confirmDelete, cancelDelete, onEdit
   return (
     <div className="row d-flex">
 
-      <div className="col-12 p-0 border-bottom border-light">
-        <div className="top-header border-bottom border-light px-4 pt-2">
+      <div className="col-12 border-bottom border-light">
+        <div className="top-header border-bottom px-4 pt-2">
           {/* <div className="row mt-1">
             <div className="col-6">
               <input type="text" placeholder="Search Question" autoComplete="off" className="form-control" name="username" value="" />
@@ -30,11 +30,11 @@ const QuestionList = ({ questions, onDelete, confirmDelete, cancelDelete, onEdit
         </div>
       </div>
 
-      <div className="scroll-cntr scollable">
+      <div className="scroll-cntr scollable p-4">
         {questions.map(group =>
           <div key={group[0]._id}>
-            <div className="col-12 bg-light px-4 py-3">
-              <h6 className="mb-0 text-muted font-weight-bold">{group[0].categoryId}</h6>
+            <div className="col-12 py-2">
+              <h6 className="mb-0 font-weight-bold text-extra-muted text-uppercase">{group[0].categoryId}</h6>
             </div>
             {group.map(question =>
               <QuestionListRow key={question._id}

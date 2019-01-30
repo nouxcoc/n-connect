@@ -6,7 +6,7 @@ import Icon from '@material-ui/core/Icon';
 
 const ToDoItem = ({ todo, onEdit, onDelete, onUpdate }) => {
   return (
-    <div className="px-5 py-3 border-bottom border-light position-relative">
+    <div className="px-4 py-3 border-bottom border-light position-relative">
       <div className="floating-cntr">
         <Tooltip title="Remove" placement="top">
           <IconButton aria-label="Copy" onClick={() => onDelete(todo._id)}>
@@ -22,8 +22,8 @@ const ToDoItem = ({ todo, onEdit, onDelete, onUpdate }) => {
           </i>
         </span>
         <span className={(todo.active ? 'text-primary' : 'text-extra-muted')} onClick={() => todo.active && onEdit(todo._id)}>
-          <small className="text-extra-muted d-block text-uppercase"><small>{todo.type}</small></small>
           {todo.title}
+          <small className="text-extra-muted d-block text-uppercase"><small>{todo.type}</small></small>
         </span>
 
         {/* <small>

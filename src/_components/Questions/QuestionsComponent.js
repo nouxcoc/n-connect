@@ -47,7 +47,7 @@ class QuestionsComponent extends React.Component {
     return (
       <div className="dashboard-container">
         <div className="row">
-          <div className="col-5 full-height-container question-type-section p-0">
+          <div className="col-4 full-height-container question-type-section p-0">
             <div className="top-header border-bottom px-4 pt-2">
               <div className="row mt-2">
                 <div className="col-12">
@@ -63,11 +63,11 @@ class QuestionsComponent extends React.Component {
                 <span className="badge badge-pill bg-light d-inline-block px-3 py-2 font-weight-normal text-muted m-1">BRANDING</span>
               </div> */}
 
-              <div className="card bg-transparent border-bottom px-5 py-4">
-                <h1 className="font-weight-light custom-font text-extra-muted">{stakeHolderQuestions.length + userQuestions.length}</h1>
-                <h6 className="display-5 text-extra-muted">All Interview <br />Questions</h6>
+              <div className="card bg-transparent border-bottom border-med-light px-5 py-4">
+                <h1 className="font-weight-bold custom-font text-extra-muted">{stakeHolderQuestions.length + userQuestions.length}</h1>
+                <h6 className="display-5 text-extra-muted">All Interview Questions</h6>
               </div>
-              <div className="card px-5 py-4 border-bottom">
+              <div className="card px-5 py-4 bg-primary border-bottom border-med-light">
                 <div className="floating-cntr">
                   {/* <span className="rounded-btn bg-secondary floated">
                   <i className="material-icons text-white mr-4">
@@ -80,10 +80,17 @@ class QuestionsComponent extends React.Component {
                   </i>
                   </span>
                 </div>
-                <h1 className="display-4 font-weight-light custom-font text-primary">{stakeHolderQuestions.length}</h1>
-                <h6 className="text-primary" >Stakeholder Interview <br />Questions</h6>
+                <h1 className="font-weight-bold custom-font text-white">{stakeHolderQuestions.length}</h1>
+                <h6 className="text-white" >Stakeholder Interview Questions</h6>
+                <div className="mt-2">
+                  <span className="badge badge-pill badge-border text-white">BRANDING</span>
+                  <span className="badge badge-pill badge-border text-white">GENERAL</span>
+                  <span className="badge badge-pill badge-border text-white">TARGET AUDIENCE</span>
+                  <span className="badge badge-pill badge-border text-white">COMPETITION</span>
+                  <span className="badge badge-pill badge-border text-white">LOCALIZATION</span>
+                </div>
               </div>
-              <div className="card bg-transparent border-bottom px-5 py-4">
+              <div className="card bg-transparent border-bottom border-med-light px-5 py-4">
                 <div className="floating-cntr">
                   <span className={"rounded-btn border border-dark floated " + (this.state.addEditActive ? 'disabled' : '')} onClick={this.addEditQuestion}>
                     <i className="material-icons text-dark mr-4">
@@ -91,15 +98,22 @@ class QuestionsComponent extends React.Component {
                   </i>
                   </span>
                 </div>
-                <h1 className="font-weight-light custom-font text-extra-muted">{userQuestions.length}</h1>
-                <h6 className="text-extra-muted" >User Interview <br />Questions</h6>
+                <h1 className="font-weight-bold custom-font text-extra-muted">{userQuestions.length}</h1>
+                <h6 className="text-extra-muted" >User Interview Questions</h6>
+                <div className="mt-2">
+                  <span className="badge badge-pill badge-border text-muted">BRANDING</span>
+                  <span className="badge badge-pill badge-border text-muted">GENERAL</span>
+                  <span className="badge badge-pill badge-border text-muted">TARGET AUDIENCE</span>
+                  <span className="badge badge-pill badge-border text-muted">COMPETITION</span>
+                  <span className="badge badge-pill badge-border text-muted">LOCALIZATION</span>
+                </div>
               </div>
             </div>
           </div>
 
-          <div className={"col-7 full-height-container questions-section p-0 " + (this.state.addEditActive ? 'question-edit-active' : '')}>
+          <div className={"col-8 full-height-container questions-section p-0 " + (this.state.addEditActive ? 'question-edit-active' : '')}>
             <ManageQuestionPage selectedId={this.state.selectedId} onHideEdit={this.hideEditing} />
-            <div className="px-3">
+            <div className="px-0">
               <QuestionList onEdit={this.addEditQuestion}
                 selectedId={this.state.selectedId}
                 selectedToDelete={this.state.selectedToDelete}

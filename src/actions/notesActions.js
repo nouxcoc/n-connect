@@ -2,7 +2,7 @@ import * as types from './actionTypes';
 import { beginAjaxCall, ajaxCallError } from './ajaxStatusActions';
 import axios from 'axios';
 
-const baseurl = "https://n-connect-api.herokuapp.com/";
+const baseurl = "http://localhost:3000/";
 
 export function loadNotesSuccess(todolist) {
   return { type: types.LOAD_NOTES_SUCCESS, todolist };

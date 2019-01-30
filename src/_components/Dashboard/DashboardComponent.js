@@ -7,6 +7,16 @@ import { ToDoComponent } from './ToDo/ToDoComponent';
 import { NotesComponent } from './Notes/NotesComponent';
 import { loadToDoList } from '../../actions/todoActions';
 import { loadNotes } from '../../actions/notesActions';
+import IconButton from '@material-ui/core/IconButton';
+import Tooltip from '@material-ui/core/Tooltip';
+import Fab from '@material-ui/core/Fab';
+import Icon from '@material-ui/core/Icon';
+import Avatar from '@material-ui/core/Avatar';
+import Grid from '@material-ui/core/Grid';
+import { UserInfo } from './UserInfo';
+import { HappeningAround } from './HappeningAround';
+import { UsefulArticles } from './UsefulArticles';
+
 
 class DashBoardComponent extends React.Component {
     componentDidMount() {
@@ -25,39 +35,16 @@ class DashBoardComponent extends React.Component {
         return (
             <div className="dashboard-container">
                 <div className="row">
-                    <div className="col-12 full-height-container scroll-bar bg-light p-0">
-                        <div className="scollable px-5 py-4">
-                            <div className="row">
-                                <div className="col-12">
-                                    <h1 className=" text-muted custom-font font-weight-light">Hello <span className="font-weight-normal">Anil</span></h1>
-                                </div>
-                                <div className="col-4">
-                                    <div className="card rounded bg-warning text-white px-5 py-4">
-                                        <h2 className="mb-0 custom-font font-weight-light display-4">24</h2>
-                                        <p className="mb-0"><small>Active Projects</small></p>
-                                    </div>
-                                </div>
-                                <div className="col-4">
-                                    <div className="card rounded bg-primary text-white px-5 py-4">
-                                        <h2 className="mb-0 custom-font font-weight-light display-4">24</h2>
-                                        <p className="mb-0"><small>Completed Projects</small></p>
-                                    </div>
-                                </div>
-                                <div className="col-4">
-                                    <div className="card bg-secondary text-white rounded px-5 py-4">
-                                        <h2 className="mb-0 custom-font font-weight-light display-4">24</h2>
-                                        <p className="mb-0"><small>All Interview Questions</small></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="row mt-4">
-                                <div className="col-6">
-                                    <ToDoComponent />
-                                </div>
-                                <div className="col-6">
-                                    <NotesComponent />
-                                </div>
-                            </div>
+                    <div className="col-md-4 full-height-container bg-dark scroll-bar p-0">
+                        <UserInfo />
+                    </div>
+                    <div className="col-md-8 full-height-container p-0">
+                        <div className="scollable scroll-bar card-spacing">
+
+                            <HappeningAround />
+                            <UsefulArticles/>
+
+                            
                         </div>
                     </div>
                 </div>

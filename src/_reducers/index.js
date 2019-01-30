@@ -4,6 +4,7 @@ import categories from './categoryReducer';
 import questions from './questionReducer';
 import todolist from './todoReducer';
 import notes from './notesReducer';
+import projects from './projectsReducer';
 import messages from './messageReducer';
 import ajaxCallsInProgress from './ajaxStatusReducer';
 import { registration } from './registration.reducer';
@@ -20,6 +21,7 @@ const appReducer = combineReducers({
   messages,
   todolist,
   notes,
+  projects,
   ajaxCallsInProgress
 });
 

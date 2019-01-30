@@ -18,7 +18,7 @@ class TeamComponent extends React.Component {
         return (
             <div className="team-container">
                 <div className="row">
-                    <div className="col-12 text-center p-0 full-height-container bg-light">
+                    <div className="col-4 p-0 full-height-container bg-light">
                         <div className="top-header tabs border-bottom px-5">
                             <ul className="nav">
                                 <li className="nav-item">
@@ -29,144 +29,69 @@ class TeamComponent extends React.Component {
                                 </li>
                             </ul>
                         </div>
-                        <div className="scroll-cntr scollable p-5">
-                            <div className="row">
-                                <div className="col-4">
-                                    <div className="card p-4">
-                                        <div className="user-info-cntr py-1">
-                                            <h5 className="text-secondary font-weight-bold">7.5 yrs</h5>
-                                            <div className="rounded-circle user-info bg-secondary my-2 d-flex justify-content-center align-items-center text-white align-items-center">
-                                                <img src="users/rick.jpg" />
-                                            </div>
-                                            <h6 className="font-weight-bold text-muted">Anil Dsouza</h6>
-                                            <h6>+91 7353420123</h6>
-                                            <p><small className="text-extra-muted font-weight-bold">UI / UX LEAD</small></p>
-                                            {/* <div className="pb-3 border-bottom border-light">
-                                            <span className="badge badge-pill bg-light d-inline-block px-3 py-2 font-weight-normal text-muted m-1">General</span>
-                                            <span className="badge badge-pill bg-light d-inline-block px-3 py-2 font-weight-normal text-muted m-1">COMMON</span>
-                                            <span className="badge badge-pill bg-light d-inline-block px-3 py-2 font-weight-normal text-muted m-1">BRANDING</span>
-                                        </div> */}
-                                            <div className="pt-4 border-top border-light">
-                                                <button className="btn btn-outline-primary"><small>VIEW</small></button>
-                                            </div>
+                        <div className="scroll-cntr scollable">
+
+                            <div className="px-5 py-4 border-bottom border-med-light">
+                                <button className="btn btn-secondary"><small>ADD NEW</small></button>
+                            </div>
+
+                            <div className="card team-card bg-transparent border-bottom border-med-light px-5 py-4">
+                                <div className="my-2">
+                                    <div className="d-flex align-items-center header-cntr mb-2">
+                                        <div className="rounded-circle user-info float-left bg-secondary m-0 mr-3 mb-2">
+                                            <img src="users/rick.jpg" />
+                                        </div>
+                                        <div className="desc">
+                                            <h5 className="font-weight-bold text-muted mb-0">Anil D souza</h5>
+                                            <h6 className="font-weight-bold my-1">+91 7353420123</h6>
+                                            <h6 className="text-muted">7.5 yrs</h6>
                                         </div>
                                     </div>
+                                    <p className="mb-2 text-extra-muted">All Stakeholder Interview Questions</p>
+                                    <span className="badge badge-pill badge-border bg-white d-inline-block px-3 py-2 mb-1 font-weight-normal text-muted">UX DESIGN</span>
+                                    <span className="badge badge-pill badge-border bg-white d-inline-block px-3 py-2 mb-1 font-weight-normal text-muted">ANGULAR</span>
+                                    <span className="badge badge-pill badge-border bg-white d-inline-block px-3 py-2 mb-1 font-weight-normal text-muted">REACT</span>
                                 </div>
-                                <div className="col-4">
-                                    <div className="card p-4">
-                                        <div className="user-info-cntr py-1">
-                                            <h5 className="text-secondary font-weight-bold">7.5 yrs</h5>
-                                            <div className="rounded-circle user-info bg-secondary my-2 d-flex justify-content-center align-items-center text-white align-items-center">
-                                                <img src="users/rick.jpg" />
-                                            </div>
-                                            <h6 className="font-weight-bold text-muted">Anil Dsouza</h6>
-                                            <h6>+91 7353420123</h6>
-                                            <p><small className="text-extra-muted font-weight-bold">UI / UX LEAD</small></p>
-                                            {/* <div className="pb-3 border-bottom border-light">
-                                            <span className="badge badge-pill bg-light d-inline-block px-3 py-2 font-weight-normal text-muted m-1">General</span>
-                                            <span className="badge badge-pill bg-light d-inline-block px-3 py-2 font-weight-normal text-muted m-1">COMMON</span>
-                                            <span className="badge badge-pill bg-light d-inline-block px-3 py-2 font-weight-normal text-muted m-1">BRANDING</span>
-                                        </div> */}
-                                            <div className="pt-4 border-top border-light">
-                                                <button className="btn btn-outline-primary"><small>VIEW</small></button>
-                                            </div>
+                            </div>
+
+                            <div className="card team-card border-bottom border-med-light px-5 py-4">
+                                <div className="my-2">
+                                    <div className="d-flex align-items-center header-cntr mb-2">
+                                        <div className="rounded-circle user-info float-left bg-secondary m-0 mr-3 mb-2">
+                                            <img src="users/rick.jpg" />
+                                        </div>
+                                        <div className="desc">
+                                            <h5 className="font-weight-bold text-muted mb-0">Anil D souza</h5>
+                                            <h6 className="font-weight-bold my-1">+91 7353420123</h6>
+                                            <h6 className="text-muted">7.5 yrs</h6>
                                         </div>
                                     </div>
-                                </div>
-                                <div className="col-4">
-                                    <div className="card p-4">
-                                        <div className="user-info-cntr py-1">
-                                            <h5 className="text-secondary font-weight-bold">7.5 yrs</h5>
-                                            <div className="rounded-circle user-info bg-secondary my-2 d-flex justify-content-center align-items-center text-white align-items-center">
-                                                <img src="users/daryl.jpg" />
-                                            </div>
-                                            <h6 className="font-weight-bold text-muted">Anil Dsouza</h6>
-                                            <h6>+91 7353420123</h6>
-                                            <p><small className="text-extra-muted font-weight-bold">UI / UX LEAD</small></p>
-                                            {/* <div className="pb-3 border-bottom border-light">
-                                            <span className="badge badge-pill bg-light d-inline-block px-3 py-2 font-weight-normal text-muted m-1">General</span>
-                                            <span className="badge badge-pill bg-light d-inline-block px-3 py-2 font-weight-normal text-muted m-1">COMMON</span>
-                                            <span className="badge badge-pill bg-light d-inline-block px-3 py-2 font-weight-normal text-muted m-1">BRANDING</span>
-                                        </div> */}
-                                            <div className="pt-4 border-top border-light">
-                                                <button className="btn btn-outline-primary"><small>VIEW</small></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-4">
-                                    <div className="card p-4">
-                                        <div className="user-info-cntr py-1">
-                                            <h5 className="text-secondary font-weight-bold">7.5 yrs</h5>
-                                            <div className="rounded-circle user-info bg-secondary my-2 d-flex justify-content-center align-items-center text-white align-items-center">
-                                                <img src="users/rick.jpg" />
-                                            </div>
-                                            <h6 className="font-weight-bold text-muted">Anil Dsouza</h6>
-                                            <h6>+91 7353420123</h6>
-                                            <p><small className="text-extra-muted font-weight-bold">UI / UX LEAD</small></p>
-                                            {/* <div className="pb-3 border-bottom border-light">
-                                            <span className="badge badge-pill bg-light d-inline-block px-3 py-2 font-weight-normal text-muted m-1">General</span>
-                                            <span className="badge badge-pill bg-light d-inline-block px-3 py-2 font-weight-normal text-muted m-1">COMMON</span>
-                                            <span className="badge badge-pill bg-light d-inline-block px-3 py-2 font-weight-normal text-muted m-1">BRANDING</span>
-                                        </div> */}
-                                            <div className="pt-4 border-top border-light">
-                                                <button className="btn btn-outline-primary"><small>VIEW</small></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-4">
-                                    <div className="card p-4">
-                                        <div className="user-info-cntr py-1">
-                                            <h5 className="text-secondary font-weight-bold">7.5 yrs</h5>
-                                            <div className="rounded-circle user-info bg-secondary my-2 d-flex justify-content-center align-items-center text-white align-items-center">
-                                                <img src="users/rick.jpg" />
-                                            </div>
-                                            <h6 className="font-weight-bold text-muted">Anil Dsouza</h6>
-                                            <h6>+91 7353420123</h6>
-                                            <p><small className="text-extra-muted font-weight-bold">UI / UX LEAD</small></p>
-                                            {/* <div className="pb-3 border-bottom border-light">
-                                            <span className="badge badge-pill bg-light d-inline-block px-3 py-2 font-weight-normal text-muted m-1">General</span>
-                                            <span className="badge badge-pill bg-light d-inline-block px-3 py-2 font-weight-normal text-muted m-1">COMMON</span>
-                                            <span className="badge badge-pill bg-light d-inline-block px-3 py-2 font-weight-normal text-muted m-1">BRANDING</span>
-                                        </div> */}
-                                            <div className="pt-4 border-top border-light">
-                                                <button className="btn btn-outline-primary"><small>VIEW</small></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-4">
-                                    <div className="card p-4">
-                                        <div className="user-info-cntr py-1">
-                                            <h5 className="text-secondary font-weight-bold">7.5 yrs</h5>
-                                            <div className="rounded-circle user-info bg-secondary my-2 d-flex justify-content-center align-items-center text-white align-items-center">
-                                                <img src="users/daryl.jpg" />
-                                            </div>
-                                            <h6 className="font-weight-bold text-muted">Anil Dsouza</h6>
-                                            <h6>+91 7353420123</h6>
-                                            <p><small className="text-extra-muted font-weight-bold">UI / UX LEAD</small></p>
-                                            {/* <div className="pb-3 border-bottom border-light">
-                                            <span className="badge badge-pill bg-light d-inline-block px-3 py-2 font-weight-normal text-muted m-1">General</span>
-                                            <span className="badge badge-pill bg-light d-inline-block px-3 py-2 font-weight-normal text-muted m-1">COMMON</span>
-                                            <span className="badge badge-pill bg-light d-inline-block px-3 py-2 font-weight-normal text-muted m-1">BRANDING</span>
-                                        </div> */}
-                                            <div className="pt-4 border-top border-light">
-                                                <button className="btn btn-outline-primary"><small>VIEW</small></button>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <p className="mb-2 text-extra-muted">All Stakeholder Interview Questions</p>
+                                    <span className="badge badge-pill badge-border bg-white d-inline-block px-3 py-2 mb-1 font-weight-normal text-muted">UX DESIGN</span>
+                                    <span className="badge badge-pill badge-border bg-white d-inline-block px-3 py-2 mb-1 font-weight-normal text-muted">HTML</span>
+                                    <span className="badge badge-pill badge-border bg-white d-inline-block px-3 py-2 mb-1 font-weight-normal text-muted">CSS</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    {/* <div className="col-4 full-height-container"></div>
-                    <div className="col-5 full-height-container">
-                        <h1 className="display-4">Team</h1>
-                        <p>You're logged in with React!!</p>
-                        <h2>WELCOME {user.user.name}</h2>
-                    </div> */}
+                    <div className="col-8 full-height-container p-0">
+                        <div className="top-header tabs border-bottom px-5">
+                            <ul className="nav">
+                                <li className="nav-item">
+                                    <a className="nav-link active" href="#"><small>DETAILS</small></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div className="scroll-cntr scollable">
+                            <div className="p-5">
+                                <h1 className="display-4">Projects</h1>
+                                <h2>{user.user.name}</h2>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
+
             </div>
 
         );

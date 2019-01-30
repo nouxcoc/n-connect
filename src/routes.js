@@ -5,9 +5,14 @@ import { ManageQuestionPage } from './_components/Questions/ManageQuestionPage';
 import Layout from './_components/Layout';
 import { ProjectsComponent } from './_components/Projects/ProjectsComponent';
 import { TeamComponent } from './_components/Team/TeamComponent';
+import { GuestPage } from './GuestPage';
 
 const routes = [
 
+    {
+        path: "/guest",
+        component: GuestPage
+    },
     {
         path: "/login",
         component: LoginPage

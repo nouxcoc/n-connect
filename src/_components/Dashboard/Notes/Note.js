@@ -7,7 +7,7 @@ import Icon from '@material-ui/core/Icon';
 
 const Note = ({ note, onEdit, onDelete, onCopy }) => {
   return (
-    <div className="px-5 py-3 border-bottom border-light position-relative">
+    <div className="px-4 py-3 border-bottom border-light position-relative">
       <div className="floating-cntr">
         <Tooltip title="Remove" placement="top">
           <IconButton aria-label="Copy" onClick={() => onDelete(note._id)}>
@@ -30,8 +30,8 @@ const Note = ({ note, onEdit, onDelete, onCopy }) => {
         </a> :
           null}
         <span className="text-primary ml-2 myInput" onClick={() => onEdit(note._id)}>
-          <small className="text-extra-muted d-block text-uppercase"><small>{note.label}</small></small>
           {note.title}
+          <small className="text-extra-muted d-block text-uppercase"><small>{note.label}</small></small>
         </span>
       </h6>
       {/* <p className="mb-0"><small className="text-extra-muted text-uppercase"><small>{note.type}</small></small></p> */}

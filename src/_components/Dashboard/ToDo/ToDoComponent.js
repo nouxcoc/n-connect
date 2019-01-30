@@ -18,7 +18,7 @@ class ToDoComponent extends React.Component {
         addEditActive: false,
         selectedToDelete: false,
         todoId: '',
-        filterType: null
+        filterType: false
     };
 
     componentDidMount() {
@@ -67,8 +67,8 @@ class ToDoComponent extends React.Component {
 
         return (
             <div className={"card rounded " + (this.state.addEditActive ? 'todo-edit-active' : '')}>
-                <h2 className="mb-0 custom-font font-weight-light display-5 px-5 pt-4">TO-DO</h2>
-                <div className="top-header tabs border-bottom px-5">
+                <h4 className="mb-0 custom-font font-weight-light display-5 px-4 pt-4">My TO-DO</h4>
+                <div className="top-header tabs border-bottom px-4">
                     <ul className="nav">
                         <li className="nav-item">
                             <a className={'nav-link cursor-pointer ' + (this.state.filterType == null ? 'active' : '')} onClick={() => this.filterNotes(null)}><small>ALL</small></a>
@@ -118,10 +118,7 @@ ToDoComponent.propTypes = {
 
 function mapStateToProps(state, ownProps) {
     const { user } = state.authentication.user;
-    const todolist = state.todolist;
-    // const stakeHolderQuestions = state.questions.filter(question => question.type == 'stakeholder');
-    // const userQuestions = state.questions.filter(question => question.type == 'user');
-    // const groupedQuestions = _.map(_.groupBy(state.questions, 'categoryId'));
+    const todolist = _.sortBy(state.todolist, 'createdOn');
     return {
         user,
         todolist

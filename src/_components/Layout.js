@@ -6,7 +6,7 @@ import { AsidePanel } from './_common/AsidePanel';
 
 const Layout = ({ routes }) => {
     return (
-        <div className="dashboard-container">
+        <div className="layout-container">
             <Sidebar />
 
             <Switch>
@@ -15,7 +15,7 @@ const Layout = ({ routes }) => {
                 ))}
                 <Redirect exact from="/" to="/dashboard" />
             </Switch>
-            {localStorage.getItem('user') ? <AsidePanel /> : <Redirect exact from="/" to="/login" />}
+            {/* {localStorage.getItem('user') ? <AsidePanel /> : <Redirect exact from="/" to="/login" />} */}
         </div>
     );
 };
