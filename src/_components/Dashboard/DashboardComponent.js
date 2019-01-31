@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { store } from '../../_helpers';
 import { userActions } from '../../_actions';
@@ -7,12 +6,6 @@ import { ToDoComponent } from './ToDo/ToDoComponent';
 import { NotesComponent } from './Notes/NotesComponent';
 import { loadToDoList } from '../../actions/todoActions';
 import { loadNotes } from '../../actions/notesActions';
-import IconButton from '@material-ui/core/IconButton';
-import Tooltip from '@material-ui/core/Tooltip';
-import Fab from '@material-ui/core/Fab';
-import Icon from '@material-ui/core/Icon';
-import Avatar from '@material-ui/core/Avatar';
-import Grid from '@material-ui/core/Grid';
 import { UserInfo } from './UserInfo';
 import { HappeningAround } from './HappeningAround';
 import { UsefulArticles } from './UsefulArticles';
@@ -31,7 +24,6 @@ class DashBoardComponent extends React.Component {
     }
 
     render() {
-        const { user, users } = this.props;
         return (
             <div className="dashboard-container">
                 <div className="row">
@@ -40,11 +32,8 @@ class DashBoardComponent extends React.Component {
                     </div>
                     <div className="col-md-8 full-height-container p-0">
                         <div className="scollable scroll-bar card-spacing">
-
                             <HappeningAround />
-                            <UsefulArticles/>
-
-                            
+                            <UsefulArticles />
                         </div>
                     </div>
                 </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { AllProjects, ActiveProjects, NewProjects, TeamMembers, InterviewQuestions, RecentProjects, NewProjectCreated, HeuristicEvaluation, ReviewsPending } from '.';
+import { NotesComponent } from '../Notes/NotesComponent';
 
 const HappeningAround = ({ todo, onEdit, onDelete, onUpdate }) => {
     return (
@@ -44,7 +45,8 @@ const HappeningAround = ({ todo, onEdit, onDelete, onUpdate }) => {
                     <RecentProjects />
                 </div>
                 <div className="col-lg-6 d-flex">
-                    <ReviewsPending />
+                    {/* <ReviewsPending /> */}
+                    <NotesComponent/>
                 </div>
             </div>
         </div>

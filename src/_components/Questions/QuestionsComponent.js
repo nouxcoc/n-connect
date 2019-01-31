@@ -63,10 +63,10 @@ class QuestionsComponent extends React.Component {
                 <span className="badge badge-pill bg-light d-inline-block px-3 py-2 font-weight-normal text-muted m-1">BRANDING</span>
               </div> */}
 
-              <div className="card bg-transparent border-bottom border-med-light px-5 py-4">
+              {/* <div className="card bg-transparent border-bottom border-med-light px-5 py-4">
                 <h1 className="font-weight-bold custom-font text-extra-muted">{stakeHolderQuestions.length + userQuestions.length}</h1>
                 <h6 className="display-5 text-extra-muted">All Interview Questions</h6>
-              </div>
+              </div> */}
               <div className="card px-5 py-4 bg-primary border-bottom border-med-light">
                 <div className="floating-cntr">
                   {/* <span className="rounded-btn bg-secondary floated">
