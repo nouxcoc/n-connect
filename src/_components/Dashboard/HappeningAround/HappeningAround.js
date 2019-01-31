@@ -45,8 +45,8 @@ const HappeningAround = ({ todo, onEdit, onDelete, onUpdate }) => {
                     <RecentProjects />
                 </div>
                 <div className="col-lg-6 d-flex">
-                    {/* <ReviewsPending /> */}
-                    <NotesComponent/>
+                    <ReviewsPending />
+                    {/* <NotesComponent/> */}
                 </div>
             </div>
         </div>
