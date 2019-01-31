@@ -1,8 +1,8 @@
 import * as types from './actionTypes';
 import { beginAjaxCall, ajaxCallError } from './ajaxStatusActions';
 import axios from 'axios';
+import * as config from '../_helpers/config';
 
-const baseurl = "http://localhost:3000/";
 
 export function loadProjectsSuccess(projects) {
   return { type: types.LOAD_PROJECTS_SUCCESS, projects };
@@ -23,7 +23,7 @@ export function deleteProjectSuccess(project) {
 export function loadProjects() {
   return function (dispatch) {
     dispatch(beginAjaxCall());
-    return axios.get(`${baseurl}projects`)
+    return axios.get(`${config.URL}projects`)
       .then(res => {
         dispatch(loadProjectsSuccess(res.data));
       }).catch((error) => {
@@ -35,7 +35,7 @@ export function loadProjects() {
 export function saveProject(project) {
   return function (dispatch, getState) {
     dispatch(beginAjaxCall());
-    return axios.post(`${baseurl}projects`, project)
+    return axios.post(`${config.URL}projects`, project)
       .then(res => {
         dispatch(createProjectSuccess(res.data));
       }).catch((error) => {
@@ -48,7 +48,7 @@ export function saveProject(project) {
 export function updateProject(project) {
   return function (dispatch, getState) {
     dispatch(beginAjaxCall());
-    return axios.put(`${baseurl}project/${project._id}`, project)
+    return axios.put(`${config.URL}project/${project._id}`, project)
       .then(res => {
         dispatch(updateProjectSuccess(res.data));
       }).catch((error) => {
@@ -61,7 +61,7 @@ export function updateProject(project) {
 export function deleteProject(projectId) {
   return function (dispatch, getState) {
     dispatch(beginAjaxCall());
-    return axios.delete(`${baseurl}projects/${projectId}`)
+    return axios.delete(`${config.URL}projects/${projectId}`)
       .then(res => {
         dispatch(deleteProjectSuccess(res.data));
       }).catch((error) => {

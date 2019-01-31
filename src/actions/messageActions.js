@@ -1,8 +1,7 @@
 import * as types from './actionTypes';
 import { beginAjaxCall, ajaxCallError } from './ajaxStatusActions';
 import axios from 'axios';
-
-const baseurl = "http://localhost:3000/";
+import * as config from '../_helpers/config';
 
 export function loadMessageSuccess(messages) {
   return { type: types.LOAD_MESSAGES_SUCCESS, messages };
@@ -22,7 +21,7 @@ export function deleteMessageSuccess(message) {
 
 export function loadMessages() {
   return function (dispatch) {
-    return axios.get(`${baseurl}messages`)
+    return axios.get(`${config.URL}messages`)
       .then(res => {
         dispatch(loadMessageSuccess(res.data));
       }).catch((error) => {
@@ -33,7 +32,7 @@ export function loadMessages() {
 
 export function sendMessage(message) {
   return function (dispatch, getState) {
-    return axios.post(`${baseurl}messages`, message)
+    return axios.post(`${config.URL}messages`, message)
       .then(res => {
         dispatch(createMessageSuccess(res.data));
       }).catch((error) => {
@@ -45,7 +44,7 @@ export function sendMessage(message) {
 
 export function updateMessage(message) {
   return function (dispatch, getState) {
-    return axios.put(`${baseurl}messages/${message._id}`, message)
+    return axios.put(`${config.URL}messages/${message._id}`, message)
       .then(res => {
         dispatch(updateMessageSuccess(res.data));
       }).catch((error) => {
@@ -57,7 +56,7 @@ export function updateMessage(message) {
 
 export function deleteMessage(messageId) {
   return function (dispatch, getState) {
-    return axios.delete(`${baseurl}messages/${messageId}`)
+    return axios.delete(`${config.URL}messages/${messageId}`)
       .then(res => {
         dispatch(deleteMessageSuccess(res.data));
       }).catch((error) => {

@@ -1,5 +1,6 @@
 //import config from 'config';
 import { authHeader } from '../_helpers';
+import * as config from '../_helpers/config';
 
 export const userService = {
     login,
@@ -18,7 +19,7 @@ function login(username, password) {
         body: JSON.stringify({ username, password })
     };
 
-    return fetch(`http://localhost:3000/auth/login`, requestOptions)
+    return fetch(`${config.URL}auth/login`, requestOptions)
         .then(handleResponse)
         .then(user => {
             // login successful if there's a jwt token in the response

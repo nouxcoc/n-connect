@@ -1,8 +1,7 @@
 import * as types from './actionTypes';
 import { beginAjaxCall, ajaxCallError } from './ajaxStatusActions';
 import axios from 'axios';
-
-const baseurl = "http://localhost:3000/";
+import * as config from '../_helpers/config';
 
 export function loadToDoListSuccess(todolist) {
   return { type: types.LOAD_TODOLIST_SUCCESS, todolist };
@@ -23,7 +22,7 @@ export function deleteToDoSuccess(todo) {
 export function loadToDoList(userId) {
   return function (dispatch) {
     dispatch(beginAjaxCall());
-    return axios.get(`${baseurl}todolist/${userId}`)
+    return axios.get(`${config.URL}todolist/${userId}`)
       .then(res => {
         dispatch(loadToDoListSuccess(res.data));
       }).catch((error) => {
@@ -35,7 +34,7 @@ export function loadToDoList(userId) {
 export function saveToDo(todo) {
   return function (dispatch, getState) {
     dispatch(beginAjaxCall());
-    return axios.post(`${baseurl}todolist`, todo)
+    return axios.post(`${config.URL}todolist`, todo)
       .then(res => {
         dispatch(createToDoSuccess(res.data));
       }).catch((error) => {
@@ -48,7 +47,7 @@ export function saveToDo(todo) {
 export function updateToDo(todo) {
   return function (dispatch, getState) {
     dispatch(beginAjaxCall());
-    return axios.put(`${baseurl}todolist/${todo._id}`, todo)
+    return axios.put(`${config.URL}todolist/${todo._id}`, todo)
       .then(res => {
         dispatch(updateToDoSuccess(res.data));
       }).catch((error) => {
@@ -61,7 +60,7 @@ export function updateToDo(todo) {
 export function deleteToDo(todoId) {
   return function (dispatch, getState) {
     dispatch(beginAjaxCall());
-    return axios.delete(`${baseurl}todolist/${todoId}`)
+    return axios.delete(`${config.URL}todolist/${todoId}`)
       .then(res => {
         dispatch(deleteToDoSuccess(res.data));
       }).catch((error) => {
