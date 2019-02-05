@@ -43,7 +43,7 @@ function getAll() {
         headers: authHeader()
     };
 
-    return fetch(`http://localhost:3000/users`, requestOptions).then(handleResponse);
+    return fetch(`${config.URL}users`, requestOptions).then(handleResponse);
 }
 
 function getById(id) {
@@ -52,7 +52,7 @@ function getById(id) {
         headers: authHeader()
     };
 
-    return fetch(`http://localhost:3000/users/${id}`, requestOptions).then(handleResponse);
+    return fetch(`${config.URL}users/${id}`, requestOptions).then(handleResponse);
 }
 
 function register(user) {
@@ -62,7 +62,7 @@ function register(user) {
         body: JSON.stringify(user)
     };
 
-    return fetch(`http://localhost:3000/users/register`, requestOptions).then(handleResponse);
+    return fetch(`${config.URL}users/register`, requestOptions).then(handleResponse);
 }
 
 function update(user) {
@@ -72,7 +72,7 @@ function update(user) {
         body: JSON.stringify(user)
     };
 
-    return fetch(`http://localhost:3000/users/${user.id}`, requestOptions).then(handleResponse);
+    return fetch(`${config.URL}users/${user.id}`, requestOptions).then(handleResponse);
 }
 
 // prefixed function name with underscore because delete is a reserved word in javascript
@@ -82,7 +82,7 @@ function _delete(id) {
         headers: authHeader()
     };
 
-    return fetch(`http://localhost:3000/users/${id}`, requestOptions).then(handleResponse);
+    return fetch(`${config.URL}users/${id}`, requestOptions).then(handleResponse);
 }
 
 function handleResponse(response) {

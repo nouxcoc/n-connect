@@ -26,8 +26,9 @@
     "node-sass": "^4.11.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "cross-env REACT_APP_ENV=development react-scripts start",
+    "staging": "cross-env REACT_APP_ENV=staging react-scripts build",
+    "build": "cross-env REACT_APP_ENV=production react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -41,6 +42,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "cross-env": "^5.2.0",
     "node-sass": "^4.11.0",
     "redux-immutable-state-invariant": "^2.1.0"
   }

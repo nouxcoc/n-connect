@@ -6,12 +6,17 @@ import Layout from './_components/Layout';
 import { ProjectsComponent } from './_components/Projects/ProjectsComponent';
 import { TeamComponent } from './_components/Team/TeamComponent';
 import { GuestPage } from './GuestPage';
+import { GuestPageAgain } from './GuestPage2/GuestPage';
 
 const routes = [
 
     {
         path: "/guest",
         component: GuestPage
+    },
+    {
+        path: "/guest-2",
+        component: GuestPageAgain
     },
     {
         path: "/login",

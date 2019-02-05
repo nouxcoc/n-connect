@@ -17,7 +17,7 @@ const QuestionaireUpdates = ({ todo, onEdit, onDelete, onUpdate }) => {
           </IconButton>
         </div>
         <h6 className="font-weight-bold text-secondary"><strong>HME</strong></h6>
-        <p className="mb-0 text-white">HME answered STAKEHOLDER Interview Questions</p>
+        <p className="mb-0 text-white pr-5">HME answered STAKEHOLDER Interview Questions</p>
       </div>
 
       <div className="project-cntr pt-3">
@@ -27,7 +27,7 @@ const QuestionaireUpdates = ({ todo, onEdit, onDelete, onUpdate }) => {
           </IconButton>
         </div>
         <h6 className="font-weight-bold text-secondary"><strong>FITCH</strong></h6>
-        <p className="mb-0 text-white">Fitch Users answered USER Interview Questions</p>
+        <p className="mb-0 text-white pr-5">Fitch Users answered USER Interview Questions</p>
       </div>
     </div>
   );

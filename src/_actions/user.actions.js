@@ -2,30 +2,44 @@ import { userConstants } from '../_constants';
 import { userService } from '../_services';
 import { alertActions } from './';
 import { history } from '../_helpers';
+import axios from 'axios';
+import * as config from '../_helpers/config';
 
 export const userActions = {
     login,
     logout,
     register,
     getAll,
+    checkuser,
     delete: _delete
 };
 
 function login(username, password) {
     return dispatch => {
         dispatch(request({ username }));
-
-        userService.login(username, password)
-            .then(
-                user => { 
-                    dispatch(success(user));
-                    history.push('/');
-                },
-                error => {
-                    dispatch(failure(error.toString()));
-                    dispatch(alertActions.error(error.toString()));
+        return axios.post(`${config.URL}auth/login`, { username: username, password: password })
+            .then(user => {
+                if (user.data.token) {
+                    // store user details and jwt token in local storage to keep user logged in between page refreshes
+                    localStorage.setItem('user', JSON.stringify(user.data));
                 }
-            );
+                dispatch(success(user.data));
+            }).catch((error) => {
+                dispatch(failure(error.toString()));
+                throw (error);
+            });
+
+        // return userService.login(username, password)
+        //     .then(
+        //         user => {
+        //             dispatch(success(user));
+        //             history.push('/');
+        //         },
+        //         error => {
+        //             dispatch(failure(error.toString()));
+        //             dispatch(alertActions.error(error.toString()));
+        //         }
+        //     );
     };
 
     function request(user) { return { type: userConstants.LOGIN_REQUEST, user } }
@@ -44,7 +58,7 @@ function register(user) {
 
         userService.register(user)
             .then(
-                user => { 
+                user => {
                     dispatch(success());
                     history.push('/login');
                     dispatch(alertActions.success('Registration successful'));
@@ -59,6 +73,15 @@ function register(user) {
     function request(user) { return { type: userConstants.REGISTER_REQUEST, user } }
     function success(user) { return { type: userConstants.REGISTER_SUCCESS, user } }
     function failure(error) { return { type: userConstants.REGISTER_FAILURE, error } }
+}
+
+function checkuser(user) {
+    return dispatch => {
+        return axios.get(`${config.URL}users/${user}`)
+            .then(user => {
+                return user.data;
+            });
+    }
 }
 
 function getAll() {
