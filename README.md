@@ -1,4 +1,4 @@
-Idea behind this application was to build a application for tracking team activity along with stakeholder Questionlaire. React 16 is on action with API written on Node Js. This is still WIP and there is lot room to improve. Right now this is just like mock-up, since only few API's are in action just to keep things moving
+Idea behind this application was to build an application for tracking team activity along with stakeholder Questionnaire. React 16 is on action with API written on Node Js. This is still WIP and there is lot room to improve. Right now, this is just like mock-up, since only few API's are in action just to keep things moving
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
