@@ -1,5 +1,5 @@
 import * as types from '../actions/actionTypes';
-import initialState from './initialState';
+// import initialState from './initialState';
 
 export default function questionReducer(state = [], action) {
   switch (action.type) {

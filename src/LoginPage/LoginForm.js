@@ -1,9 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 import Fab from '@material-ui/core/Fab';
-import Input from '@material-ui/core/Input';
+// import Input from '@material-ui/core/Input';
 import RippleLoader from '../_components/_common/RippleLoader';
 
 const LoginForm = ({ handleSubmit, onChange, username, password, submitted, errors, handleBlur }) => {

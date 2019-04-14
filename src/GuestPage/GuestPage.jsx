@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import './Guest.scss';
 
-import { userActions } from '../_actions';
+// import { userActions } from '../_actions';
 
 class GuestPage extends React.Component {
     constructor(props) {

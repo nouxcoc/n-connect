@@ -170,8 +170,8 @@ QuestionsComponent.propTypes = {
 };
 
 function mapStateToProps(state, ownProps) {
-  const stakeHolderQuestions = state.questions.filter(question => question.type == 'stakeholder');
-  const userQuestions = state.questions.filter(question => question.type == 'user');
+  const stakeHolderQuestions = state.questions.filter(question => question.type === 'stakeholder');
+  const userQuestions = state.questions.filter(question => question.type === 'user');
   const groupedQuestions = _.map(_.groupBy(state.questions, 'categoryId'));
   return {
     questions: groupedQuestions,

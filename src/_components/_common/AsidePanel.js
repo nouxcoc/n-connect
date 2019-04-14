@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { ChatComponent } from '../Chat/ChatComponent';
 
 class AsidePanel extends Component {
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
 
   render() {
     const { user, users } = this.props;

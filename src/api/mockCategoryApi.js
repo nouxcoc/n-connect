@@ -59,7 +59,7 @@ class CategoryApi {
         }
 
         if (category.id) {
-          const existingCategoryIndex = categories.findIndex(a => a.id == category.id);
+          const existingCategoryIndex = categories.findIndex(a => a.id === category.id);
           categories.splice(existingCategoryIndex, 1, category);
         } else {
           //Just simulating creation here.
@@ -78,7 +78,7 @@ class CategoryApi {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         const indexOfCategoryToDelete = categories.findIndex(category => {
-          return category.categoryId == categoryId;
+          return category.categoryId === categoryId;
         });
         categories.splice(indexOfCategoryToDelete, 1);
         resolve();

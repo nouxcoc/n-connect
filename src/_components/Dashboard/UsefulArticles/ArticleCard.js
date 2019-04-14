@@ -1,8 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import Tooltip from '@material-ui/core/Tooltip';
-import Fab from '@material-ui/core/Fab';
-import Icon from '@material-ui/core/Icon';
+// import Fab from '@material-ui/core/Fab';
+// import Icon from '@material-ui/core/Icon';
 import Avatar from '@material-ui/core/Avatar';
 
 const ArticleCard = ({ todo, onEdit, onDelete, onUpdate }) => {

@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as todoActions from '../../../actions/todoActions';
 import ToDoForm from './ToDoForm';
-import { categoriesFormattedForDropdown } from '../../../selectors/selectors';
+// import { categoriesFormattedForDropdown } from '../../../selectors/selectors';
 import toastr from 'toastr';
-import socketIOClient from "socket.io-client";
+// import socketIOClient from "socket.io-client";
 //const socket = socketIOClient('http://localhost:3000');
 // import axios from 'axios';
 

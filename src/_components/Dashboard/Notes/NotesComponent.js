@@ -49,7 +49,7 @@ class NotesComponent extends React.Component {
     }
 
     render() {
-        let notes = this.props.notes.filter(note => note.type == this.state.filterType);
+        let notes = this.props.notes.filter(note => note.type === this.state.filterType);
 
         return (
             <div className={"card rounded " + (this.state.addEditActive ? 'note-edit-active' : '')}>
@@ -57,10 +57,10 @@ class NotesComponent extends React.Component {
                 <div className="top-header tabs border-bottom px-4">
                     <ul className="nav">
                         <li className="nav-item">
-                            <a className={'nav-link cursor-pointer ' + (this.state.filterType == 'text' ? 'active' : '')} onClick={() => this.filterNotes('text')}><small>TEXT</small></a>
+                            <span className={'nav-link cursor-pointer ' + (this.state.filterType === 'text' ? 'active' : '')} onClick={() => this.filterNotes('text')}><small>TEXT</small></span>
                         </li>
                         <li className="nav-item cursor-pointer">
-                            <a className={'nav-link cursor-pointer ' + (this.state.filterType == 'url' ? 'active' : '')} onClick={() => this.filterNotes('url')}><small>REF URL</small></a>
+                            <span className={'nav-link cursor-pointer ' + (this.state.filterType === 'url' ? 'active' : '')} onClick={() => this.filterNotes('url')}><small>REF URL</small></span>
                         </li>
                     </ul>
                     <div className="floating-cntr center">

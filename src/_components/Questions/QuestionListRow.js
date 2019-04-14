@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Moment from 'react-moment';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 const QuestionListRow = ({ question, onDelete, confirmDelete, cancelDelete, onEdit, selectedToDelete, selectedId }) => {
   return (
@@ -17,7 +17,7 @@ const QuestionListRow = ({ question, onDelete, confirmDelete, cancelDelete, onEd
           </span>
         </div>
         <div className="badges mb-1 text-uppercase">
-          <span className="badge badge-pill badge-light d-inline-block mr-1"><small className={"font-weight-bold " + (question.type == 'user' ? 'text-danger' : 'text-primary')}>{question.type}</small></span>
+          <span className="badge badge-pill badge-light d-inline-block mr-1"><small className={"font-weight-bold " + (question.type === 'user' ? 'text-danger' : 'text-primary')}>{question.type}</small></span>
           <span className="badge badge-pill badge-light d-inline-block mr-1"><small className="text-extra-muted font-weight-bold">{question.categoryId}</small></span>
         </div>
         <small className="text-extra-muted text-uppercase">
@@ -36,7 +36,7 @@ const QuestionListRow = ({ question, onDelete, confirmDelete, cancelDelete, onEd
           {question.title}
         </h6>
       </div>
-      {selectedToDelete && selectedId == question._id ?
+      {selectedToDelete && selectedId === question._id ?
         <div className="delete-confirmation p-4 border-bottom">
           <h6 className="mb-3 font-weight-normal text-secondary question-title">
             Are you sure you want to permanently Delete this Question?

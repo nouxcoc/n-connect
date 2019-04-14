@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 // import LoadingDots from './LoadingDots';
 
 const Sidebar = ({ loading }) => {
@@ -20,7 +20,7 @@ const Sidebar = ({ loading }) => {
         <li>
           <div className="user-info-cntr border-bottom border-light py-1">
             <div className="rounded-circle user-info bg-secondary my-2 d-flex justify-content-center align-items-center text-white align-items-center">
-              <img src="/users/ad.jpg" />
+              <img alt="Anil" src="/users/ad.jpg" />
             </div>
           </div>
         </li>

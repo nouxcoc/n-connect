@@ -6,7 +6,7 @@ import * as questionActions from '../../actions/questionActions';
 import QuestionForm from './QuestionForm';
 import { categoriesFormattedForDropdown } from '../../selectors/selectors';
 import toastr from 'toastr';
-import socketIOClient from "socket.io-client";
+// import socketIOClient from "socket.io-client";
 //const socket = socketIOClient('http://localhost:3000');
 // import axios from 'axios';
 
@@ -69,8 +69,10 @@ class ManageQuestionPage extends React.Component {
 
     this.setState({ saving: true });
     if (this.state.question._id) {
-      this.state.question.updatedOn = new Date();
-      this.state.question.updatedBy = this.props.user.name;
+      this.setState({ question: {
+        updatedOn : new Date(),
+        updatedBy : this.props.user.name
+      } });
       this.props.actions.updateQuestion(this.state.question)
         .then(() => {
           this.redirect();
@@ -81,8 +83,10 @@ class ManageQuestionPage extends React.Component {
         });
     }
     else {
-      this.state.question.createdOn = new Date();
-      this.state.question.createdBy = this.props.user.name;
+      this.setState({ question: {
+        createdOn : new Date(),
+        createdBy : this.props.user.name
+      } });
       this.props.actions.saveQuestion(this.state.question)
         .then(() => this.redirect())
         .catch(error => {

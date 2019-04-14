@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import './Login.scss';
@@ -36,7 +36,7 @@ class LoginPage extends React.Component {
         e.preventDefault();
         this.setState({ submitted: true });
         const { username, password } = this.state;
-        const { dispatch } = this.props;
+        // const { dispatch } = this.props;
         if (username && password) {
             // dispatch(userActions.login(username, password));
             this.props.actions.login(username, password)
@@ -59,7 +59,7 @@ class LoginPage extends React.Component {
     }
 
     render() {
-        const { loggingIn } = this.props;
+        // const { loggingIn } = this.props;
         const { username, password, submitted, errors, validuser } = this.state;
         return (
             <div className="login-bg container-fluid">
@@ -99,7 +99,7 @@ class LoginPage extends React.Component {
                     <div className="col-sm-6 col-md-4 bg-white full-height-container px-4">
                         <div className="row full-height-container justify-content-center align-items-center">
                             <div className="col-md-12 col-xl-8 text-center text-primary pb-5">
-                                <Avatar alt="User" src={'/users/' + validuser + '.' + (validuser == 'team' ? 'svg' : 'jpg')} className="avatar d-inline-flex big-avatar" />
+                                <Avatar alt="User" src={'/users/' + validuser + '.' + (validuser === 'team' ? 'svg' : 'jpg')} className="avatar d-inline-flex big-avatar" />
 
                                 <LoginForm
                                     submitted={submitted}

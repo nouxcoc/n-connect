@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { UserProfile, ToDoInfo, NewProject, CurrentProject, QuestionaireUpdates } from '.';
 
 const UserInfo = ({ todo, onEdit, onDelete, onUpdate }) => {

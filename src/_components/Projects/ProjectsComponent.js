@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import _ from "lodash";
 import { store } from '../../_helpers';
@@ -8,7 +8,7 @@ import { loadProjects } from '../../actions/projectsActions';
 import NoResults from '../_common/NoResults';
 import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
-import Fab from '@material-ui/core/Fab';
+// import Fab from '@material-ui/core/Fab';
 import Icon from '@material-ui/core/Icon';
 import Avatar from '@material-ui/core/Avatar';
 import Grid from '@material-ui/core/Grid';
@@ -25,7 +25,7 @@ class ProjectsComponent extends React.Component {
     }
 
     render() {
-        const { user, projects } = this.props;
+        const { projects } = this.props;
         return (
             <div className="dashboard-container">
                 <div className="row">
@@ -33,7 +33,7 @@ class ProjectsComponent extends React.Component {
                         <div className="top-header tabs border-bottom px-5">
                             <ul className="nav">
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#"><small>PROJECTS</small></a>
+                                    <span className="nav-link"><small>PROJECTS</small></span>
                                 </li>
                             </ul>
                         </div>
@@ -44,7 +44,7 @@ class ProjectsComponent extends React.Component {
 
                             {projects.length === 0 ? <NoResults /> :
                                 projects.map((project, index) =>
-                                    <div key={project._id} className={'project-card card border-bottom border-med-light px-5 py-4 ' + (index == 1 ? 'bg-primary' : 'bg-transparent')}>
+                                    <div key={project._id} className={'project-card card border-bottom border-med-light px-5 py-4 ' + (index === 1 ? 'bg-primary' : 'bg-transparent')}>
                                         <div className="floating-cntr">
                                             <small className={'d-inline-flex align-items-center ' + (project.active ? 'text-warning' : 'text-extra-muted')}>
                                                 <i className="material-icons mr-1 md-18">
@@ -56,10 +56,10 @@ class ProjectsComponent extends React.Component {
                                         <h4 className="font-weight-bold text-extra-muted">{project.name}</h4>
                                         <div className="d-flex align-items-center mb-2">
                                             <div className="rounded-circle user-info float-left bg-secondary m-0 mr-2">
-                                                <img src="users/rick.jpg" />
+                                                <img alt="Anil" src="users/rick.jpg" />
                                             </div>
                                             <div className="desc">
-                                                <h6 className="text-muted mb-0 font-weight-bold">{project.uxDesigner}</h6>
+                                                <h6 className={'mb-0 font-weight-bold ' + (index === 1 ? 'text-white' : 'text-muted')}>{project.uxDesigner}</h6>
                                                 {/* <small className="text-extra-muted ls-3">UX DESIGNER</small> */}
                                             </div>
                                         </div>
@@ -76,18 +76,18 @@ class ProjectsComponent extends React.Component {
                         <div className="top-header tabs border-bottom px-5">
                             <ul className="nav">
                                 <li className="nav-item">
-                                    <a className="nav-link active" href="#"><small>DETAILS</small></a>
+                                    <span className="nav-link active"><small>DETAILS</small></span>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#"><small>REVIEWS POINTS</small></a>
+                                    <span className="nav-link"><small>REVIEWS POINTS</small></span>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#"><small>QUESTIONAIRE</small></a>
+                                    <span className="nav-link"><small>QUESTIONAIRE</small></span>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#">
+                                    <span className="nav-link">
                                         <small>HEURISTIC EVALUATION</small>
-                                    </a>
+                                    </span>
                                 </li>
                             </ul>
                         </div>

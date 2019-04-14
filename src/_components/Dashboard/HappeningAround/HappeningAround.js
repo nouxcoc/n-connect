@@ -1,6 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { AllProjects, ActiveProjects, NewProjects, TeamMembers, InterviewQuestions, RecentProjects, NewProjectCreated, HeuristicEvaluation, ReviewsPending } from '.';
+// import PropTypes from 'prop-types';
+import { AllProjects, ActiveProjects, NewProjects, TeamMembers, InterviewQuestions, RecentProjects, NewProjectCreated, HeuristicEvaluation} from '.';
 import { NotesComponent } from '../Notes/NotesComponent';
 
 const HappeningAround = ({ todo, onEdit, onDelete, onUpdate }) => {

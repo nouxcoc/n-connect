@@ -1,10 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import Tooltip from '@material-ui/core/Tooltip';
+// import PropTypes from 'prop-types';
+// import Tooltip from '@material-ui/core/Tooltip';
 import IconButton from '@material-ui/core/IconButton';
 import Icon from '@material-ui/core/Icon';
-import Avatar from '@material-ui/core/Avatar';
-import Grid from '@material-ui/core/Grid';
+// import Avatar from '@material-ui/core/Avatar';
+// import Grid from '@material-ui/core/Grid';
 
 const NewProject = ({ todo, onEdit, onDelete, onUpdate }) => {
   return (

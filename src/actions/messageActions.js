@@ -1,5 +1,5 @@
 import * as types from './actionTypes';
-import { beginAjaxCall, ajaxCallError } from './ajaxStatusActions';
+import { ajaxCallError } from './ajaxStatusActions';
 import axios from 'axios';
 import * as config from '../_helpers/config';
 

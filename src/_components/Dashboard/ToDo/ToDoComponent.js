@@ -71,13 +71,13 @@ class ToDoComponent extends React.Component {
                 <div className="top-header tabs border-bottom px-4">
                     <ul className="nav">
                         <li className="nav-item">
-                            <a className={'nav-link cursor-pointer ' + (this.state.filterType == null ? 'active' : '')} onClick={() => this.filterNotes(null)}><small>ALL</small></a>
+                            <span className={'nav-link cursor-pointer ' + (this.state.filterType === null ? 'active' : '')} onClick={() => this.filterNotes(null)}><small>ALL</small></span>
                         </li>
                         <li className="nav-item">
-                            <a className={'nav-link cursor-pointer ' + (this.state.filterType == false ? 'active' : '')} onClick={() => this.filterNotes(false)}><small>ACTIVE</small></a>
+                            <span className={'nav-link cursor-pointer ' + (this.state.filterType === false ? 'active' : '')} onClick={() => this.filterNotes(false)}><small>ACTIVE</small></span>
                         </li>
                         <li className="nav-item">
-                            <a className={'nav-link cursor-pointer ' + (this.state.filterType == true ? 'active' : '')} onClick={() => this.filterNotes(true)}><small>DONE</small></a>
+                            <span className={'nav-link cursor-pointer ' + (this.state.filterType === true ? 'active' : '')} onClick={() => this.filterNotes(true)}><small>DONE</small></span>
                         </li>
                     </ul>
                     <div className="floating-cntr center">

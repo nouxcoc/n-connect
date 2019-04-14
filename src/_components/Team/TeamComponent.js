@@ -1,10 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Tooltip from '@material-ui/core/Tooltip';
 import Fab from '@material-ui/core/Fab';
 import Icon from '@material-ui/core/Icon';
-import Avatar from '@material-ui/core/Avatar';
+// import Avatar from '@material-ui/core/Avatar';
 import Grid from '@material-ui/core/Grid';
 import IconButton from '@material-ui/core/IconButton';
 
@@ -20,7 +20,7 @@ class TeamComponent extends React.Component {
     }
 
     render() {
-        const { user, users } = this.props;
+        // const { user, users } = this.props;
         return (
             <div className="team-container">
                 <div className="row">
@@ -28,10 +28,10 @@ class TeamComponent extends React.Component {
                         <div className="top-header tabs border-bottom px-5">
                             <ul className="nav">
                                 <li className="nav-item">
-                                    <a className="nav-link active" href="#"><small>DETAILS</small></a>
+                                    <span className="nav-link active" href="#"><small>DETAILS</small></span>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#"><small>REVIEW</small></a>
+                                    <span className="nav-link" href="#"><small>REVIEW</small></span>
                                 </li>
                             </ul>
                         </div>
@@ -45,7 +45,7 @@ class TeamComponent extends React.Component {
                                 <div className="my-2">
                                     <div className="d-flex align-items-center header-cntr mb-2">
                                         <div className="rounded-circle user-info float-left bg-secondary m-0 mr-3 mb-2">
-                                            <img src="users/rick.jpg" />
+                                            <img alt="Anil Dsouza" src="users/rick.jpg" />
                                         </div>
                                         <div className="desc">
                                             <h5 className="font-weight-bold text-muted mb-0">Anil D souza</h5>
@@ -63,7 +63,7 @@ class TeamComponent extends React.Component {
                                 <div className="my-2">
                                     <div className="d-flex align-items-center header-cntr mb-2">
                                         <div className="rounded-circle user-info float-left bg-secondary m-0 mr-3 mb-2">
-                                            <img src="users/rick.jpg" />
+                                            <img alt="Anil" src="users/rick.jpg" />
                                         </div>
                                         <div className="desc text-white">
                                             <h5 className="font-weight-bold mb-0">Anil D souza</h5>
@@ -82,7 +82,7 @@ class TeamComponent extends React.Component {
                         <div className="top-header tabs border-bottom px-5">
                             <ul className="nav">
                                 <li className="nav-item">
-                                    <a className="nav-link active" href="#"><small>DETAILS</small></a>
+                                    <span className="nav-link active" href="#"><small>DETAILS</small></span>
                                 </li>
                             </ul>
                         </div>
@@ -101,7 +101,7 @@ class TeamComponent extends React.Component {
                                             <h6 className="font-weight-bold text-extra-muted mb-2">INFO</h6>
                                             <div className="d-flex align-items-center header-cntr my-2">
                                                 <div className="rounded-circle user-info float-left bg-secondary m-0 mr-3 mb-2">
-                                                    <img src="users/rick.jpg" />
+                                                    <img alt="Anil" src="users/rick.jpg" />
                                                 </div>
                                                 <div className="desc">
                                                     <h5 className="font-weight-bold text-muted mb-0">Anil D souza</h5>

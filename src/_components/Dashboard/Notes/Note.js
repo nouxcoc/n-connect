@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Moment from 'react-moment';
+// import Moment from 'react-moment';
 import Tooltip from '@material-ui/core/Tooltip';
 import IconButton from '@material-ui/core/IconButton';
 import Icon from '@material-ui/core/Icon';
@@ -21,7 +21,7 @@ const Note = ({ note, onEdit, onDelete, onCopy }) => {
             <Icon className="text-extra-muted">library_books</Icon>
           </IconButton>
         </Tooltip>
-        {note.type === 'url' ? <a href={note.title} target="_blank">
+        {note.type === 'url' ? <a href={note.title} rel="noopener noreferrer" target="_blank">
           <Tooltip title="Open" placement="top">
             <IconButton aria-label="Open">
               <Icon className="text-success"> open_in_new</Icon>
