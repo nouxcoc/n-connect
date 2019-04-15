@@ -2,6 +2,10 @@ Idea behind this application was to build an application for tracking team activ
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Live Demo : https://n-connect.herokuapp.com/login
+username : anildsouza
+password : munny.376
+
 ## Available Scripts
 
 In the project directory, you can run:
